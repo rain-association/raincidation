@@ -1,0 +1,15 @@
+All rights reserved.
+
+Copyright (c) 2025 Raincidation
+
+This source code is the exclusive of TornadoTech and is protected by copyright law.
+
+You granted no rights or permissions to use, modify, distribute,  sublicense,
+or reproduce this source code in any form, in whole or in part,
+without the express written consent of TornadoTech.
+
+Any unauthorized use or reproduction of this source code
+is strictly prohibited and may result in legal action.
+
+For inquiries or licensing requests,
+please contact TornadoTech at Discord (https://discord.gg/AXz2XqZMNT).
