@@ -9,7 +9,7 @@ public ref struct RDGetCharacteristicModifiersEvent
     public readonly Entity<RDCharacteristicContainerComponent> Container;
     public readonly ProtoId<RDCharacteristicPrototype> Id;
 
-    public float ValueMultiplier = 1;
+    public int ValueMultiplier = 1;
     public float ValueAdditional;
 
     public RDGetCharacteristicModifiersEvent(Entity<RDCharacteristicContainerComponent> container, ProtoId<RDCharacteristicPrototype> id)

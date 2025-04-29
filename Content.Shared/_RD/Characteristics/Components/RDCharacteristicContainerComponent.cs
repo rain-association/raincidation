@@ -10,5 +10,8 @@ public sealed partial class RDCharacteristicContainerComponent : Component
     public const int DefaultValue = 0;
 
     [ViewVariables, AutoNetworkedField]
-    public Dictionary<ProtoId<RDCharacteristicPrototype>, float> Values = new();
+    public Dictionary<ProtoId<RDCharacteristicPrototype>, int> Values = new();
+
+    [ViewVariables, AutoNetworkedField]
+    public long Seed;
 }
