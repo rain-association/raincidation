@@ -18,7 +18,7 @@ public abstract class RDSharedCharacteristicSystem : EntitySystem
 
     private void OnStartup(Entity<RDCharacteristicContainerComponent> entity, ref ComponentStartup args)
     {
-        entity.Comp.Seed = GetSeed(GetNetEntity(entity).Id);
+        entity.Comp.Random = new RDXoshiro256(GetSeed(GetNetEntity(entity).Id));
     }
 
     public void Set(Entity<RDCharacteristicContainerComponent?> entity,
@@ -49,6 +49,18 @@ public abstract class RDSharedCharacteristicSystem : EntitySystem
         ProtoId<RDCharacteristicPrototype> id,
         int difficulty)
     {
+        return Check(entity, id, difficulty, out _, out _);
+    }
+
+    public bool Check(Entity<RDCharacteristicContainerComponent?> entity,
+        ProtoId<RDCharacteristicPrototype> id,
+        int difficulty,
+        out int modifier,
+        out int checkValue)
+    {
+        modifier = 0;
+        checkValue = 0;
+
         if (!Resolve(entity, ref entity.Comp, logMissing: false))
             return true;
 
@@ -56,10 +68,9 @@ public abstract class RDSharedCharacteristicSystem : EntitySystem
             return true;
 
         var value = Get(entity, id);
-        var modifier = GetModifier(prototype, value);
+        modifier = GetModifier(prototype, value);
 
-        var random = new RDXoshiro256(entity.Comp.Seed);
-        var checkValue = random.NextInt(RDCharacteristicPrototype.Min, prototype.Max);
+        checkValue = entity.Comp.Random.NextInt(RDCharacteristicPrototype.Min, prototype.Max);
 
         return checkValue + modifier >= difficulty;
     }

@@ -1,4 +1,5 @@
-﻿using Robust.Shared.GameStates;
+﻿using Content.Shared._RD.Utilities.Random;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._RD.Characteristics.Components;
@@ -12,6 +13,6 @@ public sealed partial class RDCharacteristicContainerComponent : Component
     [ViewVariables, AutoNetworkedField]
     public Dictionary<ProtoId<RDCharacteristicPrototype>, int> Values = new();
 
-    [ViewVariables, AutoNetworkedField]
-    public long Seed;
+    [ViewVariables]
+    public RDXoshiro256 Random;
 }

@@ -1,10 +1,12 @@
 ﻿using JetBrains.Annotations;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._RD.Utilities.Random;
 
 /// <remarks>
 /// Period 2 ^ 256 - 1.
 /// </remarks>
+[Serializable, NetSerializable]
 public struct RDXoshiro256
 {
     private ulong _s0, _s1, _s2, _s3;
@@ -25,6 +27,18 @@ public struct RDXoshiro256
         {
             NextULong();
         }
+    }
+
+    /// <summary>
+    /// Gets the current seed value that could be used to recreate this generator's state.
+    /// Note: This is not the original seed but a derived value representing current state.
+    /// </summary>
+    [PublicAPI]
+    public long GetSeed()
+    {
+        // Combine state values to create a single seed value
+        var combined = _s0 ^ _s1 ^ _s2 ^ _s3;
+        return (long) (combined & 0x7FFFFFFFFFFFFFFF); // Ensure positive value
     }
 
     /// <summary>
