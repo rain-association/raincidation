@@ -1,0 +1,31 @@
+- type: RDCharacteristic
+  id: Brawn
+  name: rd-characteristic-name-brawn
+  description: rd-characteristic-description-brawn
+
+- type: RDCharacteristic
+  id: Reflexes
+  name: rd-characteristic-name-reflexes
+  description: rd-characteristic-description-reflexes
+
+- type: RDCharacteristic
+  id: Willpower
+  name: rd-characteristic-name-willpower
+  description: rd-characteristic-description-willpower
+
+- type: RDCharacteristic
+  id: Intelligence
+  name: rd-characteristic-name-intelligence
+  description: rd-characteristic-description-intelligence
+
+- type: RDCharacteristic
+  id: Leadership
+  name: rd-characteristic-name-leadership
+  description: rd-characteristic-description-leadership
+  visible: false
+
+- type: RDCharacteristic
+  id: Luck
+  name: rd-characteristic-name-luck
+  description: rd-characteristic-description-luck
+  visible: false

@@ -13,4 +13,7 @@ public sealed class RDCharacteristicPrototype : IPrototype
 
     [DataField]
     public LocId Description = string.Empty;
+
+    [DataField]
+    public bool Visible = true;
 }
