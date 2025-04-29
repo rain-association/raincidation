@@ -1,4 +1,6 @@
-﻿namespace Content.Shared._RD.Utilities.Random;
+﻿using JetBrains.Annotations;
+
+namespace Content.Shared._RD.Utilities.Random;
 
 /// <remarks>
 /// Period 2 ^ 256 - 1.
@@ -26,34 +28,16 @@ public struct RDXoshiro256
     }
 
     /// <summary>
-    /// SplitMix64 for state initialization.
+    /// Generation of float in the range [0, 1].
     /// </summary>
-    private static ulong SplitMix64(ulong x)
+    [PublicAPI]
+    public float NextFloat()
     {
-        x += 0x9E3779B97F4A7C15;
-        x = (x ^ (x >> 30)) * 0xBF58476D1CE4E5B9;
-        x = (x ^ (x >> 27)) * 0x94D049BB133111EB;
-        return x ^ (x >> 31);
+        // We use 23 bits of the mantissa (IEEE 754 standard)
+        return (NextULong() >> 40) * (1.0f / ((1 << 24) - 1));
     }
 
-    /// <summary>
-    /// Main generation function (xoshiro256** algorithm).
-    /// </summary>
-    public ulong NextULong()
-    {
-        var result = Rotl(_s1 * 5, 7) * 9;
-        var t = _s1 << 17;
-
-        _s2 ^= _s0;
-        _s3 ^= _s1;
-        _s1 ^= _s2;
-        _s0 ^= _s3;
-        _s2 ^= t;
-        _s3 = Rotl(_s3, 45);
-
-        return result;
-    }
-
+    [PublicAPI]
     public float NextFloat(float min, float max)
     {
         if (max < min)
@@ -76,25 +60,36 @@ public struct RDXoshiro256
     }
 
     /// <summary>
-    /// Generation of int in the range [0, max).
+    /// Generation of int in the range [0, max].
     /// </summary>
+    [PublicAPI]
     public int NextInt(int max)
     {
         return NextInt(0, max);
     }
 
+    [PublicAPI]
     public int NextInt()
     {
         return (int) NextULong();
     }
 
     /// <summary>
-    /// Generation of float in the range [0, 1].
+    /// Main generation function (xoshiro256** algorithm).
     /// </summary>
-    private float NextFloat()
+    private ulong NextULong()
     {
-        // We use 23 bits of the mantissa (IEEE 754 standard)
-        return (NextULong() >> 40) * (1.0f / ((1 << 24) - 1));
+        var result = Rotl(_s1 * 5, 7) * 9;
+        var t = _s1 << 17;
+
+        _s2 ^= _s0;
+        _s3 ^= _s1;
+        _s1 ^= _s2;
+        _s0 ^= _s3;
+        _s2 ^= t;
+        _s3 = Rotl(_s3, 45);
+
+        return result;
     }
 
     /// <summary>
@@ -103,5 +98,16 @@ public struct RDXoshiro256
     private static ulong Rotl(ulong x, int k)
     {
         return (x << k) | (x >> (64 - k));
+    }
+
+    /// <summary>
+    /// SplitMix64 for state initialization.
+    /// </summary>
+    private static ulong SplitMix64(ulong x)
+    {
+        x += 0x9E3779B97F4A7C15;
+        x = (x ^ (x >> 30)) * 0xBF58476D1CE4E5B9;
+        x = (x ^ (x >> 27)) * 0x94D049BB133111EB;
+        return x ^ (x >> 31);
     }
 }
