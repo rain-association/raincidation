@@ -1,0 +1,25 @@
+- type: entity
+  parent: RDClothing
+  id: RDDebugClothingHatCombatBot
+  name: combat-bot hat
+  description: A legendary artifact that allows the bearer to...
+  suffix: Debug
+  components:
+  - type: Clothing
+    sprite: _RD/Entities/Items/Clothing/Hat/combat_bot.rsi
+    slots:
+    - HEAD
+  - type: Sprite
+    sprite: _RD/Entities/Items/Clothing/Hat/combat_bot.rsi
+    state: icon
+  - type: Item
+    sprite: _RD/Entities/Items/Clothing/Hat/combat_bot.rsi
+  - type: RDCharacteristicClothingModifier
+    values:
+      Reflexes:
+        additional: 5
+        multiplier: 2
+      Intelligence:
+        multiplier: 0.1
+      Luck:
+        additional: 50

@@ -13,6 +13,19 @@ public sealed partial class RDCharacteristicClothingModifierComponent : Componen
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public bool Enabled;
 
-    [Serializable, NetSerializable]
-    public record Modifier(int Additional, int Multiplier);
+    [DataDefinition, Serializable, NetSerializable]
+    public partial struct Modifier
+    {
+        [DataField]
+        public int Additional;
+
+        [DataField]
+        public float Multiplier = 1;
+
+        public Modifier(int additional, float multiplier)
+        {
+            Additional = additional;
+            Multiplier = multiplier;
+        }
+    }
 }

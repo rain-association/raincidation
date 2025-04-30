@@ -1,6 +1,7 @@
 ﻿using Content.Shared._RD.Characteristics.Components;
 using Content.Shared._RD.Characteristics.Events;
 using Content.Shared._RD.Utilities.Random;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._RD.Characteristics.Systems;
@@ -8,6 +9,7 @@ namespace Content.Shared._RD.Characteristics.Systems;
 public abstract class RDSharedCharacteristicSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -31,7 +33,8 @@ public abstract class RDSharedCharacteristicSystem : EntitySystem
         entity.Comp.Values[id] = value;
         Refresh(entity);
 
-        DirtyField(entity, entity.Comp, nameof(RDCharacteristicContainerComponent.Values));
+        if (_net.IsServer)
+            DirtyField(entity, entity.Comp, nameof(RDCharacteristicContainerComponent.Values));
     }
 
     public int Get(Entity<RDCharacteristicContainerComponent?> entity,
@@ -40,6 +43,13 @@ public abstract class RDSharedCharacteristicSystem : EntitySystem
         return !Resolve(entity, ref entity.Comp, logMissing: false)
             ? RDCharacteristicContainerComponent.DefaultValue
             : entity.Comp.ModifiedValues.GetValueOrDefault(id, RDCharacteristicContainerComponent.DefaultValue);
+    }
+
+    public IReadOnlyDictionary<ProtoId<RDCharacteristicPrototype>, int> GetAll(Entity<RDCharacteristicContainerComponent?> entity)
+    {
+        return !Resolve(entity, ref entity.Comp, logMissing: false)
+            ? new Dictionary<ProtoId<RDCharacteristicPrototype>, int>()
+            : entity.Comp.ModifiedValues;
     }
 
     public bool Check(Entity<RDCharacteristicContainerComponent?> entity,
@@ -80,10 +90,13 @@ public abstract class RDSharedCharacteristicSystem : EntitySystem
         foreach (var (type, value) in entity.Comp.Values)
         {
             var ev = new RDGetCharacteristicModifiersEvent((entity, entity.Comp), type);
+            RaiseLocalEvent(entity, ev);
+
             entity.Comp.ModifiedValues[type] = (int) Math.Floor((value + ev.ValueAdditional) * ev.ValueMultiplier);
         }
 
-        DirtyField(entity, entity.Comp, nameof(RDCharacteristicContainerComponent.ModifiedValues));
+        if (_net.IsServer)
+            DirtyField(entity, entity.Comp, nameof(RDCharacteristicContainerComponent.ModifiedValues));
     }
 
     private static long GetSeed(int start)

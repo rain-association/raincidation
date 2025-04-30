@@ -3,14 +3,13 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._RD.Characteristics.Events;
 
-[ByRefEvent]
-public struct RDGetCharacteristicModifiersEvent
+public sealed class RDGetCharacteristicModifiersEvent : EventArgs
 {
     public readonly Entity<RDCharacteristicContainerComponent> Container;
     public readonly ProtoId<RDCharacteristicPrototype> Id;
 
-    public int ValueMultiplier = 1;
-    public float ValueAdditional;
+    public float ValueMultiplier = 1;
+    public int ValueAdditional;
 
     public RDGetCharacteristicModifiersEvent(Entity<RDCharacteristicContainerComponent> container, ProtoId<RDCharacteristicPrototype> id)
     {

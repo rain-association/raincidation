@@ -1,12 +1,14 @@
 ﻿using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._RD.Characteristics;
 
 public sealed partial class RDCharacteristicSystem
 {
     [Dependency] private readonly IConsoleHost _console = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     private void InitializeCommands()
     {
@@ -86,7 +88,23 @@ public sealed partial class RDCharacteristicSystem
     [AdminCommand(AdminFlags.VarEdit)]
     private void OnCommandAll(IConsoleShell console, string raw, string[] args)
     {
-        console.WriteLine("TODO");
+        if (args.Length != 1)
+        {
+            console.WriteError(Loc.GetString("shell-argument-count-must-be", ("value", 2)));
+            return;
+        }
+
+        if (!NetEntity.TryParse(args[0], out var uidNet) || !TryGetEntity(uidNet, out var entityUid) || entityUid is not { } uid)
+        {
+            console.WriteError(Loc.GetString("shell-could-not-find-entity", ("entity", args[0])));
+            return;
+        }
+
+        foreach (var (type, value) in GetAll(uid))
+        {
+            var prototype = _prototype.Index(type);
+            console.WriteLine($"{Loc.GetString(prototype.Name)}: {value}");
+        }
     }
 
     [AdminCommand(AdminFlags.VarEdit)]
@@ -119,7 +137,7 @@ public sealed partial class RDCharacteristicSystem
     [AdminCommand(AdminFlags.VarEdit)]
     private void OnCommandRefresh(IConsoleShell console, string raw, string[] args)
     {
-        if (args.Length != 0)
+        if (args.Length != 1)
         {
             console.WriteError(Loc.GetString("shell-argument-count-must-be", ("value", 3)));
             return;
