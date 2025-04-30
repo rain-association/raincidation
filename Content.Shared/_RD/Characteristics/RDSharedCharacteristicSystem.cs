@@ -29,20 +29,17 @@ public abstract class RDSharedCharacteristicSystem : EntitySystem
             return;
 
         entity.Comp.Values[id] = value;
-        DirtyField(entity.Owner, entity.Comp, nameof(RDCharacteristicContainerComponent.Values));
+        Refresh(entity);
+
+        DirtyField(entity, entity.Comp, nameof(RDCharacteristicContainerComponent.Values));
     }
 
     public int Get(Entity<RDCharacteristicContainerComponent?> entity,
         ProtoId<RDCharacteristicPrototype> id)
     {
-        if (!Resolve(entity, ref entity.Comp, logMissing: false))
-            return RDCharacteristicContainerComponent.DefaultValue;
-
-        if (!entity.Comp.Values.TryGetValue(id, out var value))
-            return RDCharacteristicContainerComponent.DefaultValue;
-
-        var ev = new RDGetCharacteristicModifiersEvent((entity, entity.Comp), id);
-        return (int) Math.Floor((value + ev.ValueAdditional) * ev.ValueMultiplier);
+        return !Resolve(entity, ref entity.Comp, logMissing: false)
+            ? RDCharacteristicContainerComponent.DefaultValue
+            : entity.Comp.ModifiedValues.GetValueOrDefault(id, RDCharacteristicContainerComponent.DefaultValue);
     }
 
     public bool Check(Entity<RDCharacteristicContainerComponent?> entity,
@@ -73,6 +70,20 @@ public abstract class RDSharedCharacteristicSystem : EntitySystem
         checkValue = entity.Comp.Random.NextInt(RDCharacteristicPrototype.Min, prototype.Max);
 
         return checkValue + modifier >= difficulty;
+    }
+
+    public void Refresh(Entity<RDCharacteristicContainerComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp, logMissing: false))
+            return;
+
+        foreach (var (type, value) in entity.Comp.Values)
+        {
+            var ev = new RDGetCharacteristicModifiersEvent((entity, entity.Comp), type);
+            entity.Comp.ModifiedValues[type] = (int) Math.Floor((value + ev.ValueAdditional) * ev.ValueMultiplier);
+        }
+
+        DirtyField(entity, entity.Comp, nameof(RDCharacteristicContainerComponent.ModifiedValues));
     }
 
     private static long GetSeed(int start)

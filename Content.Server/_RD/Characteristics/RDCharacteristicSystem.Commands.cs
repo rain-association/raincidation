@@ -1,8 +1,6 @@
 ﻿using Content.Server.Administration;
-using Content.Shared._RD.Characteristics.Components;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._RD.Characteristics;
 
@@ -35,6 +33,12 @@ public sealed partial class RDCharacteristicSystem
             "",
             "rd_characteristics:check <uid> <protoId> <difficult>",
             OnCommandCheck);
+
+        _console.RegisterCommand(
+            "rd_characteristics:refresh",
+            "",
+            "rd_characteristics:check <uid>",
+            OnCommandRefresh);
     }
 
     [AdminCommand(AdminFlags.VarEdit)]
@@ -110,5 +114,23 @@ public sealed partial class RDCharacteristicSystem
         var name = result ? "success" : "fail";
         var symbol = result ? ">=" : "<";
         console.WriteLine($"Check {name} ({roll} + {modifier} {{{roll + modifier}}} {symbol} {difficulty})");
+    }
+
+    [AdminCommand(AdminFlags.VarEdit)]
+    private void OnCommandRefresh(IConsoleShell console, string raw, string[] args)
+    {
+        if (args.Length != 0)
+        {
+            console.WriteError(Loc.GetString("shell-argument-count-must-be", ("value", 3)));
+            return;
+        }
+
+        if (!NetEntity.TryParse(args[0], out var uidNet) || !TryGetEntity(uidNet, out var entityUid) || entityUid is not { } uid)
+        {
+            console.WriteError(Loc.GetString("shell-could-not-find-entity", ("entity", args[0])));
+            return;
+        }
+
+        Refresh(uid);
     }
 }

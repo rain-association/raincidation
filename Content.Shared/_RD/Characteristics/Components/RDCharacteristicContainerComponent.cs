@@ -13,6 +13,9 @@ public sealed partial class RDCharacteristicContainerComponent : Component
     [ViewVariables, AutoNetworkedField]
     public Dictionary<ProtoId<RDCharacteristicPrototype>, int> Values = new();
 
+    [ViewVariables, AutoNetworkedField]
+    public Dictionary<ProtoId<RDCharacteristicPrototype>, int> ModifiedValues = new();
+
     [ViewVariables]
     public RDXoshiro256 Random;
 }
