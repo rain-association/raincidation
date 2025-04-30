@@ -3,7 +3,7 @@ using Content.Shared._RD.Characteristics.Events;
 using Content.Shared._RD.Utilities.Random;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._RD.Characteristics;
+namespace Content.Shared._RD.Characteristics.Systems;
 
 public abstract class RDSharedCharacteristicSystem : EntitySystem
 {

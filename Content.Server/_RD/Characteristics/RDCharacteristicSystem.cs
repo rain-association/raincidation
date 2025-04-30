@@ -1,4 +1,5 @@
 ﻿using Content.Shared._RD.Characteristics;
+using Content.Shared._RD.Characteristics.Systems;
 
 namespace Content.Server._RD.Characteristics;
 

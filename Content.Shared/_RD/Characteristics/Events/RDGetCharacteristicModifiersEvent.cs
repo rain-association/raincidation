@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._RD.Characteristics.Events;
 
 [ByRefEvent]
-public ref struct RDGetCharacteristicModifiersEvent
+public struct RDGetCharacteristicModifiersEvent
 {
     public readonly Entity<RDCharacteristicContainerComponent> Container;
     public readonly ProtoId<RDCharacteristicPrototype> Id;

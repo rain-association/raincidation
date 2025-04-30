@@ -1,4 +1,5 @@
-﻿using Content.Shared._RD.Utilities.Random;
+﻿using Content.Shared._RD.Characteristics.Systems;
+using Content.Shared._RD.Utilities.Random;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
