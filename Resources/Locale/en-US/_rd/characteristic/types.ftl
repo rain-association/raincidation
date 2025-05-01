@@ -1,0 +1,12 @@
+rd-characteristic-name-brawn = Brawn
+rd-characteristic-description-brawn = ""
+rd-characteristic-name-reflexes = Reflexes
+rd-characteristic-description-reflexes = ""
+rd-characteristic-name-willpower = Willpower
+rd-characteristic-description-willpower = ""
+rd-characteristic-name-intelligence = Intelligence
+rd-characteristic-description-intelligence = ""
+rd-characteristic-name-leadership = Leadership
+rd-characteristic-description-leadership = ""
+rd-characteristic-name-luck = Luck
+rd-characteristic-description-luck = ""
