@@ -1,4 +1,5 @@
-﻿using Robust.Client.Graphics;
+﻿using System.Numerics;
+using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 
@@ -11,13 +12,14 @@ public sealed class ZLevelOverlay : Overlay, IPostInjectInit
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
-    public override OverlaySpace Space => OverlaySpace.WorldSpace;
+    public override OverlaySpace Space => OverlaySpace.ScreenSpace;
 
     private IClydeViewport? _viewport;
 
     public void PostInject()
     {
         _viewport = _clyde.CreateViewport(_clyde.ScreenSize);
+        _viewport.AutomaticRender = true;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -31,7 +33,6 @@ public sealed class ZLevelOverlay : Overlay, IPostInjectInit
         if (_viewport.Eye != eye.Eye)
             _viewport.Eye = eye.Eye;
 
-        var worldHandle = args.WorldHandle;
-        worldHandle.DrawTextureRectRegion(_viewport.RenderTarget.Texture, args.WorldBounds, Color.Red);
+        args.ScreenHandle.DrawTexture(_viewport.RenderTarget.Texture, Vector2.Zero, Color.Red);
     }
 }
