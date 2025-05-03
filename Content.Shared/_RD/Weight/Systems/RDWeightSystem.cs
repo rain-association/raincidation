@@ -1,10 +1,10 @@
 ﻿using Content.Shared._RD.Mathematics.Extensions;
 using Content.Shared._RD.Weight.Components;
+using Content.Shared._RD.Weight.Events;
 
 namespace Content.Shared._RD.Weight.Systems;
 
 // TODO: Work with stack and reagents
-// TODO: Add events
 public sealed class RDWeightSystem : EntitySystem
 {
     private EntityQuery<RDWeightComponent> _weightQuery;
@@ -47,6 +47,9 @@ public sealed class RDWeightSystem : EntitySystem
             {
                 entity.Comp.Inside = weight;
                 DirtyField(entity, entity.Comp, nameof(RDWeightComponent.Inside));
+
+                var ev = new RDWeightRefreshEvent((entity, entity.Comp), GetTotal(entity));
+                RaiseLocalEvent(entity, ref ev);
             }
 
             if (parent != EntityUid.Invalid)
