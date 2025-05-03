@@ -7,19 +7,36 @@ namespace Content.Shared._RD.Weight.Systems;
 
 public sealed class RDWeightSpeedModifierSystem : EntitySystem
 {
+    [Dependency] private readonly RDWeightSystem _weight = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<RDWeightSpeedModifierComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<RDWeightSpeedModifierComponent, RDWeightRefreshEvent>(OnRefresh);
         SubscribeLocalEvent<RDWeightSpeedModifierComponent, RefreshMovementSpeedModifiersEvent>(OnSpeedRefresh);
     }
 
+    private void OnStartup(Entity<RDWeightSpeedModifierComponent> entity, ref ComponentStartup args)
+    {
+        Refresh(entity);
+    }
+
     private void OnRefresh(Entity<RDWeightSpeedModifierComponent> entity, ref RDWeightRefreshEvent args)
     {
-        var value = entity.Comp.Curve.Calculate(args.Entity, args.Total);
+        Refresh(entity, args.Total);
+    }
+
+    private void OnSpeedRefresh(Entity<RDWeightSpeedModifierComponent> entity, ref RefreshMovementSpeedModifiersEvent args)
+    {
+        args.ModifySpeed(entity.Comp.Value);
+    }
+
+    private void Refresh(Entity<RDWeightSpeedModifierComponent> entity, float? total = null)
+    {
+        var value = entity.Comp.Curve.Calculate(total ?? _weight.GetTotal(entity.Owner));
         if (value.AboutEquals(entity.Comp.Value))
             return;
 
@@ -27,10 +44,5 @@ public sealed class RDWeightSpeedModifierSystem : EntitySystem
         DirtyField(entity, entity.Comp, nameof(RDWeightSpeedModifierComponent.Value));
 
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(entity);
-    }
-
-    private void OnSpeedRefresh(Entity<RDWeightSpeedModifierComponent> entity, ref RefreshMovementSpeedModifiersEvent args)
-    {
-        args.ModifySpeed(entity.Comp.Value);
     }
 }

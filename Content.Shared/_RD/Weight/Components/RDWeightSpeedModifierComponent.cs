@@ -15,10 +15,10 @@ public sealed partial class RDWeightSpeedModifierComponent : Component
     public RDWeightSpeedModifierCurve Curve = new RDWeightSpeedModifierLinearCurve();
 }
 
-[ImplicitDataDefinitionForInheritors]
+[ImplicitDataDefinitionForInheritors, Serializable, NetSerializable]
 public abstract partial class RDWeightSpeedModifierCurve
 {
-    public abstract float Calculate(Entity<RDWeightComponent> entity, float total);
+    public abstract float Calculate(float total);
 }
 
 [Serializable, NetSerializable]
@@ -30,7 +30,7 @@ public sealed partial class RDWeightSpeedModifierLinearCurve : RDWeightSpeedModi
     [DataField]
     public float Max;
 
-    public override float Calculate(Entity<RDWeightComponent> entity, float total)
+    public override float Calculate(float total)
     {
         return Math.Clamp(1 - (total - Min) / (Max - Min), 0f, 1f);
     }

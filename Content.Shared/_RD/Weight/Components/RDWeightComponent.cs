@@ -9,7 +9,7 @@ public sealed partial class RDWeightComponent : Component
 {
     public const float DefaultWeight = 0;
 
-    [DataField, ViewVariables, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float Value;
 
     [ViewVariables, AutoNetworkedField]
