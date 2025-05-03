@@ -1,7 +1,7 @@
 ﻿using JetBrains.Annotations;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._RD.Utilities.Random;
+namespace Content.Shared._RD.Mathematics.Random;
 
 /// <remarks>
 /// Period 2 ^ 256 - 1.

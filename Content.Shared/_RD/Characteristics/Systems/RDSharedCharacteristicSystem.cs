@@ -1,6 +1,6 @@
 ﻿using Content.Shared._RD.Characteristics.Components;
 using Content.Shared._RD.Characteristics.Events;
-using Content.Shared._RD.Utilities.Random;
+using Content.Shared._RD.Mathematics.Random;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
