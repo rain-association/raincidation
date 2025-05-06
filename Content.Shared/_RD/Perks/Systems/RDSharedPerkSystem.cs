@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text;
 using Content.Shared._RD.Perks.Components;
 using Content.Shared._RD.Perks.Prototypes;
 using Content.Shared._RD.Verbs;
@@ -100,6 +101,21 @@ public abstract class RDSharedPerkSystem : RDEntitySystem
             return Loc.GetString(perkPrototype.Description);
 
         return string.Empty;
+    }
+
+    public string GetDescriptionFull(EntityUid target, RDPerkPrototype perk)
+    {
+        var message = new StringBuilder();
+        message.AppendLine(GetDescription(perk));
+        message.AppendLine();
+
+        foreach (var restriction in perk.Restrictions)
+        {
+            var color = restriction.Check(EntityManager, target) ? "green" : "red";
+            message.Append($"- [color={color}]{restriction.GetDescription(EntityManager)}[/color]\n");
+        }
+
+        return message.ToString();
     }
 
     public bool TryAddLevel(Entity<RDPerkContainerComponent?> entity, ProtoId<RDPerkTreePrototype> tree, int value)
