@@ -6,6 +6,7 @@
            xmlns:xe="clr-namespace:Content.Client.UserInterface.XamlExtensions"
            xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
            xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.MenuBar.Widgets"
+           xmlns:input="clr-namespace:Content.Shared._RD.Input;assembly=Content.Shared"
            Name = "MenuButtons"
            VerticalExpand="False"
            Orientation="Horizontal"
@@ -33,6 +34,18 @@
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
         />
+    <!-- raincidation-region-start -->
+    <ui:MenuButton
+        Name="RDPerkButton"
+        Access="Internal"
+        Icon="{xe:Tex '/Textures/Interface/students-cap.svg.192dpi.png'}"
+        ToolTip="{Loc 'rd-game-hud-open-perk-menu-button-tooltip'}"
+        BoundKey = "{x:Static input:RDKeyFunctions.PerkMenu}"
+        MinSize="42 64"
+        HorizontalExpand="True"
+        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+    />
+    <!-- raincidation-region-end-->
     <ui:MenuButton
         Name="CharacterButton"
         Access="Internal"

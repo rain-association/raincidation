@@ -45,6 +45,14 @@ public abstract class RDSharedCharacteristicSystem : EntitySystem
             : entity.Comp.ModifiedValues.GetValueOrDefault(id, RDCharacteristicContainerComponent.DefaultValue);
     }
 
+    public int GetRaw(Entity<RDCharacteristicContainerComponent?> entity,
+        ProtoId<RDCharacteristicPrototype> id)
+    {
+        return !Resolve(entity, ref entity.Comp, logMissing: false)
+            ? RDCharacteristicContainerComponent.DefaultValue
+            : entity.Comp.Values.GetValueOrDefault(id, RDCharacteristicContainerComponent.DefaultValue);
+    }
+
     public IReadOnlyDictionary<ProtoId<RDCharacteristicPrototype>, int> GetAll(Entity<RDCharacteristicContainerComponent?> entity)
     {
         return !Resolve(entity, ref entity.Comp, logMissing: false)
