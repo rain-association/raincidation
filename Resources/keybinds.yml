@@ -624,3 +624,8 @@ binds:
   type: State
   key: MouseRight
   canFocus: true
+# raincidation-region-start
+- function: RDPerkMenu
+  type: State
+  key: R
+# raincidation-region-end

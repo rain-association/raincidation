@@ -6,7 +6,7 @@
   - MobPolymorphable
   - MobCombat
   - StripableInventoryBase
-  id: BaseMobSpecies
+  id: RDBaseMobSpecies
   abstract: true
   components:
   - type: Sprite
@@ -222,14 +222,9 @@
   - MobAtmosStandard
   - MobFlammable
   - BaseMobSpecies
-  id: BaseMobSpeciesOrganic
+  id: RDBaseMobSpeciesOrganic
   abstract: true
   components:
-  # TODO: remove this
-  - type: RDCharacteristicContainer
-  - type: RDPerkContainer
-  - type: RDWeight
-  # ----------------
   - type: Barotrauma
     damage:
       types:
@@ -289,7 +284,7 @@
 
 - type: entity
   save: false
-  id: BaseSpeciesDummy
+  id: RDBaseSpeciesDummy
   parent: InventoryBase
   abstract: true
   components:

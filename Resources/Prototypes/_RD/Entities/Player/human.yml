@@ -1,0 +1,41 @@
+- type: entity
+  parent: RDBasePlayerHuman
+  id: PlyerHuman
+  save: false
+
+- type: entity
+  parent: RDBaseMobSpeciesOrganic
+  id: RDBasePlayerHuman
+  name: tourist
+  abstract: true
+  components:
+  - type: Hunger
+  - type: Icon
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
+  - type: Thirst
+  - type: HumanoidAppearance
+    species: Human
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+
+- type: entity
+  parent: RDBaseSpeciesDummy
+  id: RDPlayerHumanDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

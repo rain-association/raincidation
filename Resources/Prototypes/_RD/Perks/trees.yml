@@ -1,0 +1,42 @@
+- type: RDPerkTree
+  id: Test
+  name: rd-perks-tree-name-test
+  description: rd-perks-tree-description-test
+  color: "#284b95"
+  parallax: AspidParallax
+
+- type: RDPerk
+  id: Test
+  tree: Test
+  name: Test
+  description: Just a test
+  cost: 1
+  uiPosition: 0, 0
+  effects:
+  - !type:AddComponents
+    components:
+    - type: OwOAccent
+
+- type: RDPerk
+  id: Test2
+  tree: Test
+  name: Test
+  description: Just a test
+  cost: 1
+  uiPosition: 5, 0
+  restrictions:
+  - !type:RDPerkRestrictionPrecondition
+    perks: [ Test ]
+
+- type: RDPerk
+  id: Test3
+  tree: Test
+  name: Test
+  description: Just a test
+  cost: 1
+  uiPosition: 0, 5
+  restrictions:
+  - !type:RDPerkRestrictionPrecondition
+    perks:
+    - Test2
+    - Test
