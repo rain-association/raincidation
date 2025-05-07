@@ -15,6 +15,7 @@ using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Client._RD.Perks;
 
@@ -140,8 +141,11 @@ public sealed class RDPerkUIController : UIController, IOnStateEntered<GameplayS
             return;
         }
 
+        var description = new FormattedMessage();
+        description.TryAddMarkup(_perk.GetDescriptionFull(_player.LocalEntity.Value, perk), out _);
+
         _window.SkillName.Text = _perk.GetName(perk);
-        _window.SkillDescription.SetMessage(_perk.GetDescription(perk));
+        _window.SkillDescription.SetMessage(description);
         _window.SkillView.Texture = _sprite.Frame0(perk.Icon);
         _window.SkillCost.Text = perk.Cost.ToString();
         _window.LearnButton.Disabled = !_perk.CanLearn(_player.LocalEntity.Value, perk);

@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._RD.Perks.Modules.Restrictions;
 
 [UsedImplicitly, Serializable]
-public sealed partial class RDPerkRestrictionCharacteristics : RDPerkRestriction
+public sealed partial class Characteristics : RDPerkRestriction
 {
     [DataField]
     public Dictionary<ProtoId<RDCharacteristicPrototype>, int> Min = new();

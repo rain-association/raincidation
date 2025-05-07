@@ -8,7 +8,7 @@
 - type: RDPerk
   id: Test
   tree: Test
-  name: Test
+  name: OwO
   description: Just a test
   cost: 1
   uiPosition: 0, 0
@@ -20,23 +20,23 @@
 - type: RDPerk
   id: Test2
   tree: Test
-  name: Test
+  name: Post OwO
   description: Just a test
   cost: 1
   uiPosition: 5, 0
   restrictions:
-  - !type:RDPerkRestrictionPrecondition
+  - !type:Precondition
     perks: [ Test ]
 
 - type: RDPerk
   id: Test3
   tree: Test
-  name: Test
+  name: Triangle
   description: Just a test
   cost: 1
   uiPosition: 0, 5
   restrictions:
-  - !type:RDPerkRestrictionPrecondition
+  - !type:Precondition
     perks:
     - Test2
     - Test

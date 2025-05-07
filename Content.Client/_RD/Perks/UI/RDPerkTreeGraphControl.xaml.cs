@@ -15,7 +15,10 @@ namespace Content.Client._RD.Perks.UI;
 [GenerateTypedNameReferences]
 public sealed partial class RDPerkTreeGraphControl : Control
 {
-    private const float GridSize = 25f;
+    private const float GridSizeMax = 50f;
+    private const float GridSizeMin = 25f;
+    private const float LocalUIScaleMax = 4f;
+    private const float LocalUIScaleMin = 1f;
 
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
@@ -31,11 +34,15 @@ public sealed partial class RDPerkTreeGraphControl : Control
     private Entity<RDPerkContainerComponent>? _player;
     private Vector2 _previousMousePosition = Vector2.Zero;
     private Vector2 _globalOffset = new(60,60);
+    private float _gridSize = GridSizeMin;
+    private float _localUIScale = LocalUIScaleMin;
 
     private RDPerkPrototype? _hoveredNode;
     private RDPerkPrototype? _selectedNode;
 
     private bool _dragging;
+
+    private float Scale => UIScale * _localUIScale;
 
     public RDPerkTreeGraphControl()
     {
@@ -50,6 +57,17 @@ public sealed partial class RDPerkTreeGraphControl : Control
     {
         _player = player;
         OnOffsetChanged?.Invoke(_globalOffset);
+    }
+
+    protected override void MouseWheel(GUIMouseWheelEventArgs args)
+    {
+        base.MouseWheel(args);
+
+        if (args.Handled)
+            return;
+
+        // _gridSize = MathHelper.Clamp(_gridSize + 5 * args.Delta.Y, GridSizeMin, GridSizeMax);
+        _localUIScale = MathHelper.Clamp(_localUIScale + 0.1f * args.Delta.Y, LocalUIScaleMin, LocalUIScaleMax);
     }
 
     protected override void KeyBindDown(GUIBoundKeyEventArgs args)
@@ -75,6 +93,8 @@ public sealed partial class RDPerkTreeGraphControl : Control
             return;
 
         // Reset offset on right click
+        _gridSize = GridSizeMin;
+        _localUIScale = LocalUIScaleMin;
         _globalOffset = new Vector2(60, 60);
         OnOffsetChanged?.Invoke(_globalOffset);
     }
@@ -109,7 +129,7 @@ public sealed partial class RDPerkTreeGraphControl : Control
         {
             var delta = cursor - _previousMousePosition;
 
-            _globalOffset += delta;
+            _globalOffset += delta * (1 / _localUIScale);
             OnOffsetChanged?.Invoke(_globalOffset);
         }
 
@@ -121,10 +141,10 @@ public sealed partial class RDPerkTreeGraphControl : Control
             if (perk.Tree != Tree)
                 continue;
 
-            var fromPosition = perk.UIPosition * GridSize * UIScale + _globalOffset;
+            var fromPosition = perk.UIPosition * _gridSize * Scale + _globalOffset;
             foreach (var restriction in perk.Restrictions)
             {
-                if (restriction is not RDPerkRestrictionPrecondition precondition)
+                if (restriction is not Precondition precondition)
                     continue;
 
                 foreach (var preconditionPerk in precondition.Perks)
@@ -136,8 +156,8 @@ public sealed partial class RDPerkTreeGraphControl : Control
                         continue;
 
                     var learned = _perk.Learned((_player.Value, _player), preconditionPerk);
-                    var targetPosition = preconditionPerkPrototype.UIPosition * GridSize * UIScale + _globalOffset;
-                    var color = learned ? Color.White : Color.FromHex("#b3b3b3");
+                    var targetPosition = preconditionPerkPrototype.UIPosition * _gridSize * Scale + _globalOffset;
+                    var color = learned ? Color.Green : Color.FromHex("#b3b3b3");
 
                     handle.DrawLine(fromPosition, targetPosition, color);
                 }
@@ -152,20 +172,17 @@ public sealed partial class RDPerkTreeGraphControl : Control
 
             // TODO: Not optimized, recalculates every frame. Needs to be calculated on state update and cached.
             var canBeLearned = _perk.CanLearn((_player.Value, _player), perk);
-            var position = perk.UIPosition * GridSize * UIScale + _globalOffset;
-
-            if (perk.Icon is null)
-                continue;
+            var position = perk.UIPosition * _gridSize * Scale + _globalOffset;
 
             // Base skill icon
             var baseTexture = _sprite.Frame0(perk.Icon);
-            var baseSize = new Vector2(baseTexture.Width, baseTexture.Height) * 1.5f * UIScale;
+            var baseSize = new Vector2(baseTexture.Width, baseTexture.Height) * 1.5f * Scale;
             var baseQuad = new UIBox2(position - baseSize / 2, position + baseSize / 2);
             var hovered = (cursor - position).LengthSquared() <= (baseSize.X / 2) * (baseSize.X / 2);
 
             // Frame
             var frameTexture = _sprite.Frame0(Tree.FrameIcon);
-            var frameSize = new Vector2(frameTexture.Width, frameTexture.Height) * 1.5f * UIScale;
+            var frameSize = new Vector2(frameTexture.Width, frameTexture.Height) * 1.5f * Scale;
             var frameQuad = new UIBox2(position - frameSize / 2, position + frameSize / 2);
             handle.DrawTextureRect(frameTexture, frameQuad, canBeLearned ? Color.White : Color.FromHex("#b3b3b3"));
 
@@ -173,7 +190,7 @@ public sealed partial class RDPerkTreeGraphControl : Control
             if (_selectedNode == perk)
             {
                 var selectedTexture = _sprite.Frame0(Tree.SelectedIcon);
-                var selectedSize = new Vector2(selectedTexture.Width, selectedTexture.Height) * 1.5f * UIScale;
+                var selectedSize = new Vector2(selectedTexture.Width, selectedTexture.Height) * 1.5f * Scale;
                 var selectedQuad = new UIBox2(position - selectedSize / 2, position + selectedSize / 2);
                 handle.DrawTextureRect(selectedTexture, selectedQuad, Color.White);
             }
@@ -183,7 +200,7 @@ public sealed partial class RDPerkTreeGraphControl : Control
             {
                 _hoveredNode = perk;
                 var hoveredTexture = _sprite.Frame0(Tree.HoveredIcon);
-                var hoveredSize = new Vector2(hoveredTexture.Width, hoveredTexture.Height) * 1.5f * UIScale;
+                var hoveredSize = new Vector2(hoveredTexture.Width, hoveredTexture.Height) * 1.5f * Scale;
                 var hoveredQuad = new UIBox2(position - hoveredSize / 2, position + hoveredSize / 2);
                 handle.DrawTextureRect(hoveredTexture, hoveredQuad, Color.White);
             }
@@ -195,14 +212,14 @@ public sealed partial class RDPerkTreeGraphControl : Control
             if (learned)
             {
                 var learnedTexture = _sprite.Frame0(Tree.LearnedIcon);
-                var learnedSize = new Vector2(learnedTexture.Width, learnedTexture.Height) * 1.5f * UIScale;
+                var learnedSize = new Vector2(learnedTexture.Width, learnedTexture.Height) * 1.5f * Scale;
                 var learnedQuad = new UIBox2(position - learnedSize / 2, position + learnedSize / 2);
                 handle.DrawTextureRect(learnedTexture, learnedQuad, Color.White);
             }
             else if (canBeLearned)
             {
                 var availableTexture = _sprite.Frame0(Tree.AvailableIcon);
-                var availableSize = new Vector2(availableTexture.Width, availableTexture.Height) * 1.5f * UIScale;
+                var availableSize = new Vector2(availableTexture.Width, availableTexture.Height) * 1.5f * Scale;
                 var availableQuad = new UIBox2(position - availableSize / 2, position + availableSize / 2);
                 handle.DrawTextureRect(availableTexture, availableQuad, Color.White);
             }
