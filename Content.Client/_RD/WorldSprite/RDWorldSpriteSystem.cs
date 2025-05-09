@@ -1,11 +1,12 @@
-﻿using Content.Shared.Throwing;
+﻿using Content.Shared._RD;
+using Content.Shared.Throwing;
 using Robust.Client.GameObjects;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Map.Components;
 
 namespace Content.Client._RD.WorldSprite;
 
-public sealed class RDWorldSpriteSystem : EntitySystem
+public sealed class RDWorldSpriteSystem : RDEntitySystem
 {
     [Dependency] private readonly IResourceCache _resCache = default!;
 
@@ -54,9 +55,7 @@ public sealed class RDWorldSpriteSystem : EntitySystem
 
     private void Update(Entity<RDWorldSpriteComponent> entity, EntityUid? parent = null)
     {
-        parent ??= Transform(entity).ParentUid;
-        var inWorld = HasComp<MapComponent>(parent) || HasComp<MapGridComponent>(parent);
-
+        var inWorld = IsMap(parent ?? Transform(entity).ParentUid);
         if (!_spriteQuery.TryComp(entity, out var spriteComponent))
             return;
 
