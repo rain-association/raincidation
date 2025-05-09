@@ -24,11 +24,6 @@ public sealed class RDWorldSpriteSystem : EntitySystem
 
     private void OnComponentInit(Entity<RDWorldSpriteComponent> entity, ref ComponentInit args)
     {
-#if DEBUG
-        if (!HasComp<AppearanceComponent>(entity))
-            Log.Error($"Requires an {nameof(AppearanceComponent)} for {entity}");
-#endif
-
         if (_spriteQuery.TryComp(entity, out var spriteComponent))
         {
             foreach (var key in entity.Comp.Layers)
