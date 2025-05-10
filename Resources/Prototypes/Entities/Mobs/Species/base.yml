@@ -226,6 +226,7 @@
   abstract: true
   components:
   # TODO: remove this
+  - type: RDDeathScreen
   - type: RDCharacteristicContainer
   - type: RDPerkContainer
   - type: RDWeight
