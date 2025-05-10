@@ -12,6 +12,8 @@
   - type: Sprite
     sprite: _RD/Entities/Items/Clothing/Hat/combat_bot.rsi
     state: icon
+  - type: RDWorldSprite
+    sprite: _RD/Entities/Items/Clothing/Hat/combat_bot_world.rsi
   - type: Item
     sprite: _RD/Entities/Items/Clothing/Hat/combat_bot.rsi
   - type: RDCharacteristicClothingModifier
