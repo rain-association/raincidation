@@ -29,6 +29,12 @@ public sealed class RDWorldSpriteSystem : RDEntitySystem
         {
             foreach (var key in entity.Comp.Layers)
             {
+                if (key == "$main")
+                {
+                    entity.Comp.CachedTexture[key] = spriteComponent.BaseRSI;
+                    continue;
+                }
+
                 if (!spriteComponent.LayerMapTryGet(key, out var index))
                     continue;
 
@@ -63,17 +69,23 @@ public sealed class RDWorldSpriteSystem : RDEntitySystem
         {
             foreach (var key in entity.Comp.Layers)
             {
-                if (!spriteComponent.LayerMapTryGet(key, out var index))
-                    continue;
-
-                if (!spriteComponent.TryGetLayer(index, out var layer))
-                    continue;
-
                 if (!_resCache.TryGetResource<RSIResource>($"/Textures/{entity.Comp.Sprite}", out var rsiResource))
                 {
                     Log.Warning($"Failed to load RSI at path '{entity.Comp.Sprite}' for layer '{key}'");
                     continue;
                 }
+
+                if (key == "$main")
+                {
+                    spriteComponent.BaseRSI = rsiResource.RSI;
+                    continue;
+                }
+
+                if (!spriteComponent.LayerMapTryGet(key, out var index))
+                    continue;
+
+                if (!spriteComponent.TryGetLayer(index, out var layer))
+                    continue;
 
                 layer.SetRsi(rsiResource.RSI);
             }
@@ -82,17 +94,23 @@ public sealed class RDWorldSpriteSystem : RDEntitySystem
 
         foreach (var key in entity.Comp.Layers)
         {
-            if (!spriteComponent.LayerMapTryGet(key, out var index))
-                continue;
-
-            if (!spriteComponent.TryGetLayer(index, out var layer))
-                continue;
-
             if (!entity.Comp.CachedTexture.TryGetValue(key, out var rsi))
             {
                 Log.Warning($"No RSI path defined for layer '{key}' in CachedTexture for {ToPrettyString(entity)}");
                 continue;
             }
+
+            if (key == "$main")
+            {
+                spriteComponent.BaseRSI = rsi;
+                continue;
+            }
+
+            if (!spriteComponent.LayerMapTryGet(key, out var index))
+                continue;
+
+            if (!spriteComponent.TryGetLayer(index, out var layer))
+                continue;
 
             layer.SetRsi(rsi);
         }

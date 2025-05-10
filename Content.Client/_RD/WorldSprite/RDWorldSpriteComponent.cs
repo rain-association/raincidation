@@ -1,4 +1,5 @@
-﻿using Robust.Client.Graphics;
+﻿using System.Diagnostics.CodeAnalysis;
+using Robust.Client.Graphics;
 
 namespace Content.Client._RD.WorldSprite;
 
@@ -6,11 +7,15 @@ namespace Content.Client._RD.WorldSprite;
 public sealed partial class RDWorldSpriteComponent : Component
 {
     [ViewVariables]
-    public Dictionary<object, RSI?> CachedTexture = new();
+    public readonly Dictionary<object, RSI?> CachedTexture = new();
 
     [DataField]
     public string Sprite = string.Empty;
 
     [DataField]
-    public List<string> Layers = new();
+    [SuppressMessage("ReSharper", "UseCollectionExpression")]
+    public List<string> Layers = new()
+    {
+        "$main",
+    };
 }
