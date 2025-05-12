@@ -1,0 +1,137 @@
+- type: species
+  id: RDHuman
+  name: rd-species-name-human
+  prototype: RDPlyerHuman
+  dollPrototype: RDPlayerHumanDummy
+  sprites: RDHumanSprites
+  markingLimits: RDHumanMarkingLimits
+  skinColoration: HumanToned
+  roundStart: true
+
+- type: speciesBaseSprites
+  id: RDHumanSprites
+  sprites:
+    Special: RDHumanoidAnyMarking
+    Head: RDHumanHead
+    Hair: RDHumanoidAnyMarking
+    FacialHair: RDHumanoidAnyMarking
+    Snout: RDHumanoidAnyMarking
+    UndergarmentTop: RDHumanoidAnyMarking
+    UndergarmentBottom: RDHumanoidAnyMarking
+    Chest: RDHumanTorso
+    Eyes: RDHumanoidEyes
+    HeadTop: RDHumanoidAnyMarking
+    LArm: RDHumanLArm
+    RArm: RDHumanRArm
+    LLeg: RDHumanLLeg
+    RLeg: RDHumanRLeg
+
+- type: markingPoints
+  id: RDHumanMarkingLimits
+  points:
+    Special:
+      points: 0
+      required: false
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 0
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
+- type: humanoidBaseSprite
+  id: RDHumanoidEyes
+  baseSprite:
+    sprite: _RD/Customization/eyes.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: RDHumanoidAnyMarking
+
+- type: humanoidBaseSprite
+  id: RDHumanoidMarkingMatchSkin
+  markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: RDHumanHead
+  baseSprite:
+    sprite: _RD/Entities/Player/Human/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: RDHumanHeadMale
+  baseSprite:
+    sprite: _RD/Entities/Player/Human/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: RDHumanHeadFemale
+  baseSprite:
+    sprite: _RD/Entities/Player/Human/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: RDHumanTorso
+  baseSprite:
+    sprite: _RD/Entities/Player/Human/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: RDHumanTorsoMale
+  baseSprite:
+    sprite: _RD/Entities/Player/Human/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: RDHumanTorsoFemale
+  baseSprite:
+    sprite: _RD/Entities/Player/Human/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: RDHumanLLeg
+  baseSprite:
+    sprite: _RD/Entities/Player/Human/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: RDHumanLArm
+  baseSprite:
+    sprite: _RD/Entities/Player/Human/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: RDHumanRLeg
+  baseSprite:
+    sprite: _RD/Entities/Player/Human/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: RDHumanRArm
+  baseSprite:
+    sprite: _RD/Entities/Player/Human/parts.rsi
+    state: r_arm
