@@ -1,0 +1,67 @@
+- type: entity
+  parent: RDEntity
+  id: RDPart
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _RD/Entities/Player/Human/parts.rsi
+
+- type: entity
+  parent:
+  - RDPart
+  - TorsoHuman
+  id: RDTorsoHuman
+  name: human torso 
+  components:
+  - type: Sprite
+    state: torso
+  
+- type: entity
+  parent:
+  - RDPart
+  - HeadHuman
+  id: RDHeadHuman
+  name: human head
+  components:
+  - type: Sprite
+    state: head
+
+- type: entity
+  parent:
+  - RDPart
+  - LeftArmHuman
+  id: RDLeftArmHuman
+  name: left human arm
+  components:
+  - type: Sprite
+    state: l_arm
+
+- type: entity
+  parent:
+  - RDPart
+  - RightArmHuman
+  id: RDRightArmHuman
+  name: right human arm
+  components:
+  - type: Sprite
+    state: r_arm
+
+- type: entity
+  parent:
+  - RDPart
+  - LeftLegHuman
+  id: RDLeftLegHuman
+  name: left human leg
+  components:
+  - type: Sprite
+    state: l_leg
+
+- type: entity
+  parent:
+  - RDPart
+  - RightLegHuman
+  id: RDRightLegHuman
+  name: right human leg
+  components:
+  - type: Sprite
+    state: r_leg

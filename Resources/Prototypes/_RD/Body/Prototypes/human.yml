@@ -4,14 +4,14 @@
   root: torso
   slots:
     head:
-      part: HeadHuman
+      part: RDHeadHuman
       connections:
       - torso
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
     torso:
-      part: TorsoHuman
+      part: RDTorsoHuman
       connections:
       - right_arm
       - left_arm
@@ -24,10 +24,10 @@
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
     right_arm:
-      part: RightArmHuman
+      part: RDRightArmHuman
     left_arm:
-      part: LeftArmHuman
+      part: RDLeftArmHuman
     right_leg:
-      part: RightLegHuman
+      part: RDRightLegHuman
     left_leg:
-      part: LeftLegHuman
+      part: RDLeftLegHuman
