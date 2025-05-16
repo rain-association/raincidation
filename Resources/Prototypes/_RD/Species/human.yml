@@ -19,7 +19,7 @@
     UndergarmentTop: RDHumanoidAnyMarking
     UndergarmentBottom: RDHumanoidAnyMarking
     Chest: RDHumanTorso
-    Eyes: RDHumanoidEyes
+    Eyes: RDHumanoidAnyMarking
     HeadTop: RDHumanoidAnyMarking
     LArm: RDHumanLArm
     RArm: RDHumanRArm
@@ -32,6 +32,10 @@
     Special:
       points: 0
       required: false
+    Eyes:
+      points: 1
+      required: true
+      defaultMarkings: [RDHumanEyes]
     Hair:
       points: 1
       required: false
@@ -62,12 +66,6 @@
     Arms:
       points: 2
       required: false
-
-- type: humanoidBaseSprite
-  id: RDHumanoidEyes
-  baseSprite:
-    sprite: _RD/Customization/eyes.rsi
-    state: eyes
 
 - type: humanoidBaseSprite
   id: RDHumanoidAnyMarking

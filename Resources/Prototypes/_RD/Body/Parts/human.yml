@@ -11,11 +11,11 @@
   - RDPart
   - TorsoHuman
   id: RDTorsoHuman
-  name: human torso 
+  name: human torso
   components:
   - type: Sprite
     state: torso
-  
+
 - type: entity
   parent:
   - RDPart
@@ -35,6 +35,9 @@
   components:
   - type: Sprite
     state: l_arm
+  - type: BodyPart
+    partType: Hand
+    symmetry: Left
 
 - type: entity
   parent:
@@ -45,6 +48,9 @@
   components:
   - type: Sprite
     state: r_arm
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
 
 - type: entity
   parent:

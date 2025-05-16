@@ -9,36 +9,38 @@
   id: RDBaseMobSpecies
   abstract: true
   components:
+  - type: HumanoidAppearance
+    species: RDHuman
   - type: Sprite
     layers:
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-    - map: [ "gloves" ]
-    - map: [ "shoes" ]
-    - map: [ "ears" ]
-    - map: [ "eyes" ]
-    - map: [ "belt" ]
-    - map: [ "id" ]
-    - map: [ "outerClothing" ]
-    - map: [ "back" ]
-    - map: [ "neck" ]
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "mask" ]
-    - map: [ "head" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]
+    - map: ["enum.HumanoidVisualLayers.Chest"]
+    - map: ["enum.HumanoidVisualLayers.Head"]
+    - map: ["enum.HumanoidVisualLayers.Snout"]
+    - map: ["enum.HumanoidVisualLayers.Eyes"]
+    - map: ["enum.HumanoidVisualLayers.RLeg"]
+    - map: ["enum.HumanoidVisualLayers.LLeg"]
+    - map: ["enum.HumanoidVisualLayers.RArm"]
+    - map: ["enum.HumanoidVisualLayers.LArm"]
+    - map: ["enum.HumanoidVisualLayers.UndergarmentBottom"]
+    - map: ["enum.HumanoidVisualLayers.UndergarmentTop"]
+    - map: ["gloves"]
+    - map: ["shoes"]
+    - map: ["ears"]
+    - map: ["eyes"]
+    - map: ["belt"]
+    - map: ["id"]
+    - map: ["outerClothing"]
+    - map: ["back"]
+    - map: ["neck"]
+    - map: ["enum.HumanoidVisualLayers.FacialHair"]
+    - map: ["enum.HumanoidVisualLayers.Hair"]
+    - map: ["enum.HumanoidVisualLayers.HeadSide"]
+    - map: ["enum.HumanoidVisualLayers.HeadTop"]
+    - map: ["enum.HumanoidVisualLayers.Tail"]
+    - map: ["mask"]
+    - map: ["head"]
+    - map: ["pocket1"]
+    - map: ["pocket2" ]
   - type: DamageVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     targetLayers:
@@ -57,8 +59,6 @@
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
-  - type: HumanoidAppearance
-    species: RDHuman
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7
@@ -173,14 +173,14 @@
     - DoorBumpOpener
 
 - type: entity
-  save: false
   parent:
   - MobBloodstream
   - MobRespirator
   - MobAtmosStandard
   - MobFlammable
-  - BaseMobSpecies
+  - RDBaseMobSpecies
   id: RDBaseMobSpeciesOrganic
+  save: false
   abstract: true
   components:
   - type: Icon
@@ -238,9 +238,9 @@
     alternateState: Standing
 
 - type: entity
-  save: false
   id: RDBaseSpeciesDummy
   parent: InventoryBase
+  save: false
   abstract: true
   components:
   - type: Hands
@@ -253,34 +253,34 @@
     drawdepth: Mobs
     noRot: true
     layers:
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
-    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
-    - map: [ "gloves" ]
-    - map: [ "shoes" ]
-    - map: [ "ears" ]
-    - map: [ "eyes" ]
-    - map: [ "belt" ]
-    - map: [ "id" ]
-    - map: [ "outerClothing" ]
-    - map: [ "back" ]
-    - map: [ "neck" ]
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "mask" ]
-    - map: [ "head" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]
+    - map: ["enum.HumanoidVisualLayers.Chest"]
+    - map: ["enum.HumanoidVisualLayers.Head"]
+    - map: ["enum.HumanoidVisualLayers.Snout"]
+    - map: ["enum.HumanoidVisualLayers.Eyes"]
+    - map: ["enum.HumanoidVisualLayers.RLeg"]
+    - map: ["enum.HumanoidVisualLayers.LLeg"]
+    - map: ["enum.HumanoidVisualLayers.RArm"]
+    - map: ["enum.HumanoidVisualLayers.LArm"]
+    - map: ["enum.HumanoidVisualLayers.UndergarmentBottom"]
+    - map: ["enum.HumanoidVisualLayers.UndergarmentTop"]
+    - map: ["gloves"]
+    - map: ["shoes"]
+    - map: ["ears"]
+    - map: ["eyes"]
+    - map: ["belt"]
+    - map: ["id"]
+    - map: ["outerClothing"]
+    - map: ["back"]
+    - map: ["neck"]
+    - map: ["enum.HumanoidVisualLayers.FacialHair"]
+    - map: ["enum.HumanoidVisualLayers.Hair"]
+    - map: ["enum.HumanoidVisualLayers.HeadSide"]
+    - map: ["enum.HumanoidVisualLayers.HeadTop"]
+    - map: ["enum.HumanoidVisualLayers.Tail"]
+    - map: ["mask"]
+    - map: ["head"]
+    - map: ["pocket1"]
+    - map: ["pocket2"]
   - type: Appearance
   - type: HumanoidAppearance
     species: RDHuman

@@ -10,6 +10,7 @@ namespace Content.Shared.Humanoid.Markings
         FacialHair,
         Head,
         HeadTop,
+        Eyes, // raincidation-marking-categories
         HeadSide,
         Snout,
         Chest,
@@ -32,6 +33,7 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.FacialHair => MarkingCategories.FacialHair,
                 HumanoidVisualLayers.Head => MarkingCategories.Head,
                 HumanoidVisualLayers.HeadTop => MarkingCategories.HeadTop,
+                HumanoidVisualLayers.Eyes => MarkingCategories.Eyes, // raincidation-marking-categories
                 HumanoidVisualLayers.HeadSide => MarkingCategories.HeadSide,
                 HumanoidVisualLayers.Snout => MarkingCategories.Snout,
                 HumanoidVisualLayers.Chest => MarkingCategories.Chest,
