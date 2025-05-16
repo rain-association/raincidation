@@ -1,10 +1,11 @@
 ﻿using System.Linq;
+using Content.Client._RD.Stylesheets;
 using Content.Client.Resources;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 
-namespace Content.Client._RD.Stylesheets;
+namespace Content.Client._RD._Content.Stylesheets;
 
 public sealed class RDStyleRadsynth : RDStyle
 {
