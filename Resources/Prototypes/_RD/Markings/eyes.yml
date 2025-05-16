@@ -1,0 +1,44 @@
+- type: marking
+  id: RDHumanEyes
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [RDHuman]
+  coloring:
+    layers:
+      iris:
+        type:
+          !type:EyeColoring
+      sclera:
+        type:
+          !type:SimpleColoring
+            color: "#FFFFFF"
+  sprites:
+  - sprite: _RD/Entities/Player/Customization/eyes.rsi
+    state: iris
+  - sprite: _RD/Entities/Player/Customization/eyes.rsi
+    state: sclera
+
+- type: marking
+  id: RDHumanEyesBig
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [RDHuman]
+  coloring:
+    layers:
+      iris:
+        type:
+          !type:EyeColoring
+      sclera:
+        type:
+          !type:SimpleColoring
+            color: "#FFFFFF"
+      skin:
+        type:
+          !type:SkinColoring
+  sprites:
+  - sprite: _RD/Entities/Player/Customization/eyes_big.rsi
+    state: iris
+  - sprite: _RD/Entities/Player/Customization/eyes_big.rsi
+    state: sclera
+  - sprite: _RD/Entities/Player/Customization/eyes_big.rsi
+    state: skin

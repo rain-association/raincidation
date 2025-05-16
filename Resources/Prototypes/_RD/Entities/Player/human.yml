@@ -1,6 +1,6 @@
 - type: entity
   parent: RDBasePlayerHuman
-  id: PlyerHuman
+  id: RDPlyerHuman
   save: false
 
 - type: entity
@@ -9,33 +9,12 @@
   name: tourist
   abstract: true
   components:
-  - type: Hunger
   - type: Icon
-    sprite: Mobs/Species/Human/parts.rsi
-    state: full
-  - type: Thirst
+    sprite: _RD/Entities/Player/Human/parts.rsi
   - type: HumanoidAppearance
-    species: Human
-    hideLayersOnEquip:
-    - Hair
-    - Snout
-  - type: Inventory
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
+    species: RDHuman
 
 - type: entity
   parent: RDBaseSpeciesDummy
   id: RDPlayerHumanDummy
   categories: [ HideSpawnMenu ]
-  components:
-  - type: Inventory
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
