@@ -1,3 +1,4 @@
+using Content.Client._RD;
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
@@ -74,6 +75,8 @@ namespace Content.Client.Entry
         [Dependency] private readonly DebugMonitorManager _debugMonitorManager = default!;
         [Dependency] private readonly TitleWindowManager _titleWindowManager = default!;
         [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+
+        [Dependency] private readonly RDEntryPoint _rdEntryPoint = default!; // raincidation-entry-point
 
         public override void Init()
         {
@@ -153,6 +156,8 @@ namespace Content.Client.Entry
         {
             base.PostInit();
 
+            _rdEntryPoint.PostInitBefore(); // raincidation-entry-point
+
             _stylesheetManager.Initialize();
 
             // Setup key contexts
@@ -184,6 +189,8 @@ namespace Content.Client.Entry
             _userInterfaceManager.MainViewport.Visible = false;
 
             SwitchToDefaultState();
+
+            _rdEntryPoint.PostInitAfter(); // raincidation-entry-point
         }
 
         private void SwitchToDefaultState(bool disconnected = false)

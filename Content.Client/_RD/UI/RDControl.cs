@@ -1,10 +1,12 @@
 ﻿using System.Numerics;
+using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client._RD.UI;
 
+[PublicAPI]
 public abstract class RDControl : Control
 {
     public Color? BackgroundColor;
