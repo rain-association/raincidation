@@ -41,7 +41,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 5
-    weightlessModifier: 1.5
+    baseWeightlessModifier: 1.5
   - type: RandomSprite
     available:
     - enum.DamageStateVisualLayers.Base:
@@ -103,11 +103,9 @@
     - SlowedDown
     - Stutter
     - Electrocution
-    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - RadiationProtection
-    - Drowsiness
     - Adrenaline
   - type: Temperature
     heatDamageThreshold: 800
@@ -141,7 +139,7 @@
     foodPreference: Humanoid
     shouldStoreDevoured: true
     chemical: Ichor
-    healRate: 15.0
+    healRate: 7.5
     whitelist:
       components:
       - MobState
