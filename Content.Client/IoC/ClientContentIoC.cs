@@ -1,3 +1,4 @@
+using Content.Client._RD;
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
@@ -33,6 +34,7 @@ namespace Content.Client.IoC
         {
             var collection = IoCManager.Instance!;
 
+            RDIoCLoader.RegisterBefore(collection); // raincidation-ioc
             collection.Register<IParallaxManager, ParallaxManager>();
             collection.Register<IChatManager, ChatManager>();
             collection.Register<ISharedChatManager, ChatManager>();
@@ -59,6 +61,7 @@ namespace Content.Client.IoC
             collection.Register<PlayerRateLimitManager>();
             collection.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             collection.Register<TitleWindowManager>();
+            RDIoCLoader.RegisterAfter(collection); // raincidation-ioc
         }
     }
 }
