@@ -37,5 +37,5 @@ public sealed class RDPerkTreePrototype : IPrototype
     public Color Color = Color.White;
 
     [DataField]
-    public string Parallax = "AspidParallax";
+    public string Parallax = "RDBlack";
 }

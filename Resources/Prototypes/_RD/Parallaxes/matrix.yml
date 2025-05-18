@@ -1,0 +1,27 @@
+- type: parallax
+  id: RDMatrix
+  layers:
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/_RD/Parallaxes/black.png"
+    slowness: 0
+    scale: 1, 1
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/_RD/Parallaxes/grid.png"
+    slowness: 0.998
+    scrolling: 0, -0.475
+    scale: 1, 1
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/_RD/Parallaxes/grid1.png"
+    slowness: 0.546
+    scale: 0.75, 0.75
+    worldAdjustPosition: 196, 0
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/_RD/Parallaxes/grid2.png"
+      scrolling: -0.7, 0
+    slowness: 0.785
+    scale: 0.5, 0.5
+    worldAdjustPosition: 128, 64

@@ -220,6 +220,7 @@ public sealed class RDPerkUIController : UIController, IOnStateEntered<GameplayS
         {
             _window.ParallaxBackground.Offset = -offset * 0.25f + new Vector2(1000, 1000); // Hardcoding is bad
         };
+        _window.ParallaxBackground.ParallaxPrototype = "RDBlack";
     }
 
     private void RequestLearn(BaseButton.ButtonEventArgs _)

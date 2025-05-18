@@ -3,7 +3,6 @@
   name: rd-perks-tree-name-test
   description: rd-perks-tree-description-test
   color: "#284b95"
-  parallax: AspidParallax
 
 - type: RDPerk
   id: Test

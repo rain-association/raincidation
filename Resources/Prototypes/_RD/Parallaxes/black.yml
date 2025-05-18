@@ -1,0 +1,8 @@
+- type: parallax
+  id: RDBlack
+  layers:
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/_RD/Parallaxes/black.png"
+    slowness: 0
+    scale: 1, 1

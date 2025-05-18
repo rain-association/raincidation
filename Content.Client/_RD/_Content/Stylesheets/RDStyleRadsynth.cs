@@ -21,10 +21,6 @@ public sealed class RDStyleRadsynth : RDStyle
         var checkBoxTextureUnchecked = resCache.GetTexture("/Textures/_RD/Interface/Styles/Radsynth/checkbox.png");
 
         Stylesheet = new Stylesheet(base.Stylesheet.Rules.Concat([
-            Element()
-                .Class("monospace")
-                .Prop("font", fontCozetteVector),
-
             #region Window title.
             new StyleRule(
                 new SelectorElement(typeof(Label), [DefaultWindow.StyleClassWindowTitle], null, null),
@@ -43,10 +39,6 @@ public sealed class RDStyleRadsynth : RDStyle
                 [new StyleProperty(TextureRect.StylePropertyTexture, checkBoxTextureChecked)]
             ),
             #endregion
-
-            Element<RichTextLabel>()
-                .Prop(Label.StylePropertyFont, fontCozetteVector),
-
         ])
         .ToList());
     }

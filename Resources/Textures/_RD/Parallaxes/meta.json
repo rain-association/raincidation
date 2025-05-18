@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Created by TornadoTechnology (GitHub)",
+  "size": {
+    "x": 480,
+    "y": 480
+  },
+  "states": [
+    {
+      "name": "black"
+    },
+    {
+      "name": "grid"
+    },
+    {
+      "name": "grid1"
+    },
+    {
+      "name": "grid2"
+    }
+  ]
+}
