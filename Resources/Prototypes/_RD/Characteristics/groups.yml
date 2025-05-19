@@ -1,0 +1,5 @@
+- type: RDCharacteristicGroup
+  id: Main
+
+- type: RDCharacteristicGroup
+  id: Skill

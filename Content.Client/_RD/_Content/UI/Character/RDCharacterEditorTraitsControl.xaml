@@ -1,0 +1,41 @@
+﻿<Control xmlns="https://spacestation14.io">
+    <BoxContainer Orientation="Vertical">
+        <!-- Body -->
+        <BoxContainer Orientation="Horizontal">
+            <!-- Left -->
+            <BoxContainer Orientation="Vertical">
+                <SpriteView Name="SpriteView" Scale="8 8" Margin="4" SizeFlagsStretchRatio="1" />
+            </BoxContainer>
+
+            <!-- Right -->
+            <BoxContainer Orientation="Vertical">
+                <!-- Name -->
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="Name:" />
+                    <LineEdit Name="NameEdit" MinSize="40 0" />
+                </BoxContainer>
+                <!-- Age -->
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="Age:" />
+                    <LineEdit Name="AgeEdit" MinSize="40 0" />
+                </BoxContainer>
+                <!-- Height -->
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="Height:" />
+                    <LineEdit Name="HeightEdit" MinSize="40 0" />
+                </BoxContainer>
+                <!-- Sex -->
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="Sex:" />
+                    <OptionButton Name="SexOption" MinSize="40 0" />
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+
+        <!-- Footer -->
+        <BoxContainer Orientation="Horizontal">
+            <Button Name="SaveButton" />
+            <Button Name="DeleteButton" />
+        </BoxContainer>
+    </BoxContainer>
+</Control>

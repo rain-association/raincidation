@@ -2,30 +2,75 @@
   id: Brawn
   name: rd-characteristic-name-brawn
   description: rd-characteristic-description-brawn
+  icon: /Textures/_RD/Interface/Characteristics/main.rsi/strength.png
+  group: Main
 
 - type: RDCharacteristic
   id: Reflexes
   name: rd-characteristic-name-reflexes
   description: rd-characteristic-description-reflexes
+  icon: /Textures/_RD/Interface/Characteristics/main.rsi/agility.png
+  group: Main
 
 - type: RDCharacteristic
   id: Willpower
   name: rd-characteristic-name-willpower
   description: rd-characteristic-description-willpower
+  icon: /Textures/_RD/Interface/Characteristics/main.rsi/attention.png
+  group: Main
 
 - type: RDCharacteristic
   id: Intelligence
   name: rd-characteristic-name-intelligence
   description: rd-characteristic-description-intelligence
+  icon: /Textures/_RD/Interface/Characteristics/main.rsi/knowledge.png
+  group: Main
 
 - type: RDCharacteristic
   id: Leadership
   name: rd-characteristic-name-leadership
   description: rd-characteristic-description-leadership
-  visible: false
+  group: Main
 
 - type: RDCharacteristic
   id: Luck
   name: rd-characteristic-name-luck
   description: rd-characteristic-description-luck
+  group: Main
   visible: false
+
+- type: RDCharacteristic
+  id: SkillMelee
+  name: rd-characteristic-name-skill-melee
+  description: rd-characteristic-description-skill-melee
+  group: Skill
+
+- type: RDCharacteristic
+  id: SkillRangeLight
+  name: rd-characteristic-name-skill-range-light
+  description: rd-characteristic-description-skill-range-light
+  group: Skill
+
+- type: RDCharacteristic
+  id: SkillRangeMedium
+  name: rd-characteristic-name-skill-range-medium
+  description: rd-characteristic-description-skill-range-medium
+  group: Skill
+
+- type: RDCharacteristic
+  id: SkillRangeHight
+  name: rd-characteristic-name-skill-range-hight
+  description: rd-characteristic-description-skill-range-hight
+  group: Skill
+
+- type: RDCharacteristic
+  id: SkillRangeCraft
+  name: rd-characteristic-name-skill-craft
+  description: rd-characteristic-description-skill-craft
+  group: Skill
+
+- type: RDCharacteristic
+  id: SkillRangeCook
+  name: rd-characteristic-name-skill-cook
+  description: rd-characteristic-description-skill-cook
+  group: Skill

@@ -49,11 +49,6 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     private CharacterSetupGuiSavePanel? _savePanel;
 
     /// <summary>
-    /// This is the characher preview panel in the chat. This should only update if their character updates.
-    /// </summary>
-    private LobbyCharacterPreviewPanel? PreviewPanel => GetLobbyPreview();
-
-    /// <summary>
     /// This is the modified profile currently being edited.
     /// </summary>
     private HumanoidCharacterProfile? EditedProfile => _profileEditor?.Profile;
@@ -75,16 +70,6 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         _configurationManager.OnValueChanged(CCVars.GameRoleTimers, _ => RefreshProfileEditor());
 
         _configurationManager.OnValueChanged(CCVars.GameRoleWhitelist, _ => RefreshProfileEditor());
-    }
-
-    private LobbyCharacterPreviewPanel? GetLobbyPreview()
-    {
-        if (_stateManager.CurrentState is LobbyState lobby)
-        {
-            return lobby.Lobby?.CharacterPreview;
-        }
-
-        return null;
     }
 
     private void OnRequirementsUpdated()
@@ -132,8 +117,6 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
 
     private void PreferencesDataLoaded()
     {
-        PreviewPanel?.SetLoaded(true);
-
         if (_stateManager.CurrentState is not LobbyState)
             return;
 
@@ -142,13 +125,11 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
 
     public void OnStateEntered(LobbyState state)
     {
-        PreviewPanel?.SetLoaded(_preferencesManager.ServerDataLoaded);
         ReloadCharacterSetup();
     }
 
     public void OnStateExited(LobbyState state)
     {
-        PreviewPanel?.SetLoaded(false);
         _profileEditor?.Dispose();
         _characterSetup?.Dispose();
 
@@ -161,35 +142,11 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     /// </summary>
     public void ReloadCharacterSetup()
     {
-        RefreshLobbyPreview();
         var (characterGui, profileEditor) = EnsureGui();
         characterGui.ReloadCharacterPickers();
         profileEditor.SetProfile(
             (HumanoidCharacterProfile?) _preferencesManager.Preferences?.SelectedCharacter,
             _preferencesManager.Preferences?.SelectedCharacterIndex);
-    }
-
-    /// <summary>
-    /// Refreshes the character preview in the lobby chat.
-    /// </summary>
-    private void RefreshLobbyPreview()
-    {
-        if (PreviewPanel == null)
-            return;
-
-        // Get selected character, load it, then set it
-        var character = _preferencesManager.Preferences?.SelectedCharacter;
-
-        if (character is not HumanoidCharacterProfile humanoid)
-        {
-            PreviewPanel.SetSprite(EntityUid.Invalid);
-            PreviewPanel.SetSummaryText(string.Empty);
-            return;
-        }
-
-        var dummy = LoadProfileEntity(humanoid, null, true);
-        PreviewPanel.SetSprite(dummy);
-        PreviewPanel.SetSummaryText(humanoid.Summary);
     }
 
     private void RefreshProfileEditor()
