@@ -10,6 +10,6 @@ public sealed partial class RDCharacterEditorTraitsControl : Control
     public RDCharacterEditorTraitsControl()
     {
         RobustXamlLoader.Load(this);
-        IoCManager.InjectDependencies(this);
+    IoCManager.InjectDependencies(this);        
     }
 }

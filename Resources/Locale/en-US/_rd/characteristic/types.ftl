@@ -22,3 +22,5 @@ rd-characteristic-name-skill-craft = Crafting
 rd-characteristic-description-skill-craft = Duct tape, rusted screws, and sheer will. You don’t find gear in perfect condition here — you make it, fix it, or improvise it. Those who can't build, break.
 rd-characteristic-name-skill-cook = Cooking
 rd-characteristic-description-skill-cook = You can't eat bullets. Sooner or later you'll need a fire, a pot, and something not glowing green. A good meal keeps the mind sane and the hands steady. Poison yourself, and you'll feed the Zone.
+rd-characteristic-name-skill-medicine = Medicine
+rd-characteristic-description-skill-medicine = Out here, a scratch can kill and a bullet wound is a coin toss. Knowing how to stop bleeding, set bones, and fight infection isn’t a luxury — it’s survival. If your hands don’t shake and your heart doesn’t turn at the sight of guts, maybe you’ll keep someone alive. Maybe even yourself.

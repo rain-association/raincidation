@@ -43,34 +43,47 @@
   id: SkillMelee
   name: rd-characteristic-name-skill-melee
   description: rd-characteristic-description-skill-melee
+  icon: /Textures/_RD/Interface/Characteristics/skills.rsi/melee.png
   group: Skill
 
 - type: RDCharacteristic
   id: SkillRangeLight
   name: rd-characteristic-name-skill-range-light
   description: rd-characteristic-description-skill-range-light
+  icon: /Textures/_RD/Interface/Characteristics/skills.rsi/range-light.png
   group: Skill
 
 - type: RDCharacteristic
   id: SkillRangeMedium
   name: rd-characteristic-name-skill-range-medium
   description: rd-characteristic-description-skill-range-medium
+  icon: /Textures/_RD/Interface/Characteristics/skills.rsi/range-medium.png
   group: Skill
 
 - type: RDCharacteristic
   id: SkillRangeHight
   name: rd-characteristic-name-skill-range-hight
   description: rd-characteristic-description-skill-range-hight
+  icon: /Textures/_RD/Interface/Characteristics/skills.rsi/range-hight.png
   group: Skill
 
 - type: RDCharacteristic
   id: SkillRangeCraft
   name: rd-characteristic-name-skill-craft
   description: rd-characteristic-description-skill-craft
+  icon: /Textures/_RD/Interface/Characteristics/skills.rsi/craft.png
   group: Skill
 
 - type: RDCharacteristic
   id: SkillRangeCook
   name: rd-characteristic-name-skill-cook
   description: rd-characteristic-description-skill-cook
+  icon: /Textures/_RD/Interface/Characteristics/skills.rsi/cook.png
+  group: Skill
+
+- type: RDCharacteristic
+  id: SkillMedicine
+  name: rd-characteristic-name-skill-medicine
+  description: rd-characteristic-description-skill-medicine
+  icon: /Textures/_RD/Interface/Characteristics/skills.rsi/medicine.png
   group: Skill
