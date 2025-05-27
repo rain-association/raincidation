@@ -2,12 +2,12 @@
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 
-namespace Content.Client._RD._Content.UI.Character;
+namespace Content.Client._RD._Content.UI.Lobby;
 
 [GenerateTypedNameReferences]
-public sealed partial class RDCharacterEditorDescriptionControl : Control
+public sealed partial class RDLobbyUI : UIScreen
 {
-    public RDCharacterEditorDescriptionControl()
+    public RDLobbyUI()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);

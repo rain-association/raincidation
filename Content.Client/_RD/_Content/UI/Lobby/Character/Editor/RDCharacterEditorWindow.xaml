@@ -1,15 +1,15 @@
 ﻿<DefaultWindow xmlns="https://spacestation14.io"
-               xmlns:sub="clr-namespace:Content.Client._RD._Content.UI.Character"
+               xmlns:editor="clr-namespace:Content.Client._RD._Content.UI.Lobby.Character.Editor"
                SetSize="900 500"
                MinSize="900 500">
     <BoxContainer MinWidth="350"
                   HorizontalExpand="True"
                   VerticalExpand="True">
         <TabContainer Name="TabContainer" VerticalExpand="True">
-            <sub:RDCharacterEditorCharacteristicsControl />
-            <sub:RDCharacterEditorSkillsControl />
-            <sub:RDCharacterEditorTraitsControl />
-            <sub:RDCharacterEditorDescriptionControl />
+            <editor:RDCharacterEditorCharacteristicsControl />
+            <editor:RDCharacterEditorSkillsControl />
+            <editor:RDCharacterEditorTraitsControl />
+            <editor:RDCharacterEditorDescriptionControl Name="DescriptionControl" />
         </TabContainer>
     </BoxContainer>
 </DefaultWindow>

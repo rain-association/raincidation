@@ -2,7 +2,7 @@
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 
-namespace Content.Client._RD._Content.UI.Character;
+namespace Content.Client._RD._Content.UI.Lobby.Character.Editor;
 
 [GenerateTypedNameReferences]
 public sealed partial class RDCharacterEditorTraitsControl : Control
@@ -10,6 +10,6 @@ public sealed partial class RDCharacterEditorTraitsControl : Control
     public RDCharacterEditorTraitsControl()
     {
         RobustXamlLoader.Load(this);
-    IoCManager.InjectDependencies(this);        
+        IoCManager.InjectDependencies(this);
     }
 }

@@ -22,6 +22,7 @@ public sealed class RDStyleRadsynth : RDStyle
         var checkBoxTextureUnchecked = resCache.GetTexture("/Textures/_RD/Interface/Styles/Radsynth/checkbox.png");
         var buttonTexture = resCache.GetTexture("/Textures/_RD/Interface/Styles/Radsynth/button.png");
         var buttonRoundedTexture = resCache.GetTexture("/Textures/_RD/Interface/Styles/Radsynth/button_rounded.png");
+        var lineEditTexture = resCache.GetTexture("/Textures/_RD/Interface/Styles/Radsynth/lineedit.png");
 
         var roundedButton = new StyleBoxTexture
         {
@@ -34,6 +35,13 @@ public sealed class RDStyleRadsynth : RDStyle
             Texture = buttonTexture,
         };
         button.SetPatchMargin(StyleBox.Margin.All, 10);
+
+        var lineEdit = new StyleBoxTexture
+        {
+            Texture = lineEditTexture,
+        };
+        lineEdit.SetPatchMargin(StyleBox.Margin.All, 3);
+        lineEdit.SetContentMarginOverride(StyleBox.Margin.Horizontal, 5);
 
         Stylesheet = new Stylesheet(base.Stylesheet.Rules.Concat([
             #region Window title
@@ -63,6 +71,9 @@ public sealed class RDStyleRadsynth : RDStyle
             Element<Button>()
                 .Class(StyleClassChatChannelSelectorButton)
                 .Prop(ContainerButton.StylePropertyStyleBox, roundedButton),
+
+            Element<LineEdit>()
+                .Prop(LineEdit.StylePropertyStyleBox, lineEdit),
 
             Element<TextureButton>()
                 .Class("CrossButtonRed")
