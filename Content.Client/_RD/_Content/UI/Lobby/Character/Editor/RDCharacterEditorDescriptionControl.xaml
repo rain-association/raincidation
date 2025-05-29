@@ -1,46 +1,53 @@
-﻿<Control xmlns="https://spacestation14.io"
-         HorizontalExpand="True">
-    <BoxContainer Orientation="Vertical"
-                  HorizontalExpand="True">
-        <!-- Body -->
-        <BoxContainer Orientation="Horizontal"
-                      HorizontalExpand="True">
-            <!-- Left -->
-            <BoxContainer Orientation="Vertical">
-                <SpriteView Name="SpriteView"
-                            Scale="8 8"
-                            Margin="4"
-                            SizeFlagsStretchRatio="1" />
-            </BoxContainer>
+﻿<BoxContainer xmlns="https://spacestation14.io"
+              VerticalExpand="True"
+              HorizontalExpand="True"
+              Orientation="Vertical">
 
-            <!-- Right -->
-            <BoxContainer Orientation="Vertical">
-                <GridContainer HorizontalExpand="True"
-                               Columns="2">
-                    <!-- Name -->
-                    <Label Text="Name:" />
-                    <LineEdit Name="NameEdit" MinWidth="240" />
-                    <!-- Age -->
-                    <Label Text="Age:" />
-                    <LineEdit Name="AgeEdit" MinWidth="100" />
-                    <!-- Height -->
-                    <Label Text="Height:" />
-                    <LineEdit Name="HeightEdit" MinWidth="100" />
-                    <!-- Sex -->
-                    <Label Text="Sex:" />
-                    <OptionButton Name="SexOption" MinSize="40 0" />
-                    <!-- Origin -->
-                    <Label Text="Origin:" />
-                    <OptionButton Name="OriginOption" MinSize="40 0" />
-                </GridContainer>
-            </BoxContainer>
+    <!-- Body -->
+    <BoxContainer VerticalExpand="True"
+                  HorizontalExpand="True"
+                  Orientation="Horizontal">
+
+        <!-- Left -->
+        <BoxContainer Orientation="Vertical">
+            <SpriteView Name="SpriteView"
+                        Scale="8 8"
+                        Margin="4"
+                        SizeFlagsStretchRatio="1" />
         </BoxContainer>
 
-        <!-- Footer -->
-        <BoxContainer Orientation="Horizontal">
-            <Button Text="Save" Name="SaveButton" />
-            <Button Text="Delete" Name="DeleteButton" />
-            <Button Text="Randomize" Name="RandomizeButton" />
+        <!-- Right -->
+        <BoxContainer VerticalExpand="True"
+                      HorizontalExpand="True"
+                      Orientation="Vertical">
+
+            <GridContainer HorizontalExpand="True"
+                           Columns="2">
+                <!-- Name -->
+                <Label Text="Name:" />
+                <LineEdit Name="NameEdit" MinWidth="240" />
+                <!-- Age -->
+                <Label Text="Age:" />
+                <LineEdit Name="AgeEdit" MinWidth="100" />
+                <!-- Height -->
+                <Label Text="Height:" />
+                <LineEdit Name="HeightEdit" MinWidth="100" />
+                <!-- Sex -->
+                <Label Text="Sex:" />
+                <OptionButton Name="SexOption" MinSize="40 0" />
+                <!-- Origin -->
+                <Label Text="Origin:" />
+                <OptionButton Name="OriginOption" MinSize="40 0" />
+            </GridContainer>
         </BoxContainer>
     </BoxContainer>
-</Control>
+
+    <!-- Footer -->
+    <BoxContainer HorizontalExpand="True"
+                  Orientation="Horizontal">
+
+        <Button Text="Save" Name="SaveButton" />
+        <Button Text="Delete" Name="DeleteButton" />
+        <Button Text="Randomize" Name="RandomizeButton" />
+    </BoxContainer>
+</BoxContainer>
