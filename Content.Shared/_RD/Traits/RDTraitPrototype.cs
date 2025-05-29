@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Prototypes;
 
-namespace Content.Shared._RD.Trait;
+namespace Content.Shared._RD.Traits;
 
 [Prototype("RDTrait")]
 public sealed class RDTraitPrototype : IPrototype

@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._RD.Trait;
+﻿namespace Content.Shared._RD.Traits;
 
 [ImplicitDataDefinitionForInheritors]
 public abstract partial class RDTraitEffect

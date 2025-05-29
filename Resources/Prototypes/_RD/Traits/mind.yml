@@ -1,0 +1,9 @@
+- type: RDTrait
+  id: Pacifism
+  name: rd-trait-name-pacifism
+  description: rd-trait-description-pacifism
+  cost: -20
+  effects:
+  - !type:AddComponents
+    components:
+    - type: Pacified

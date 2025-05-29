@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using Content.Shared._RD.Perks.Prototypes;
-using Content.Shared._RD.Trait;
+using Content.Shared._RD.Traits;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;

@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Prototypes;
 
-namespace Content.Shared._RD.Trait.Modules.Effects;
+namespace Content.Shared._RD.Traits.Modules.Effects;
 
 public sealed partial class AddComponents : RDTraitEffect
 {
