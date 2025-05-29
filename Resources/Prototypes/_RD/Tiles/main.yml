@@ -1,0 +1,21 @@
+- type: tile
+  id: RDGrass
+  name: rd-tiles-grass-floor
+  sprite: /Textures/_RD/Tiles/Grass/grass.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: RDirt
+  name: rd-tiles-dirt-floor
+  sprite: /Textures/_RD/Tiles/dirt/dirt.png
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
