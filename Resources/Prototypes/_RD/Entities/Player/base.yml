@@ -9,6 +9,8 @@
   id: RDBaseMobSpecies
   abstract: true
   components:
+  - type: Inventory
+    templateId: RDMain
   - type: HumanoidAppearance
     species: RDHuman
   - type: Sprite
@@ -23,8 +25,10 @@
     - map: ["enum.HumanoidVisualLayers.LArm"]
     - map: ["enum.HumanoidVisualLayers.UndergarmentBottom"]
     - map: ["enum.HumanoidVisualLayers.UndergarmentTop"]
-    - map: ["gloves"]
+    - map: ["pants"]
     - map: ["shoes"]
+    - map: ["shirt"]
+    - map: ["gloves"]
     - map: ["ears"]
     - map: ["eyes"]
     - map: ["belt"]
@@ -262,7 +266,9 @@
     - map: ["enum.HumanoidVisualLayers.UndergarmentBottom"]
     - map: ["enum.HumanoidVisualLayers.UndergarmentTop"]
     - map: ["gloves"]
+    - map: ["pants"]
     - map: ["shoes"]
+    - map: ["shirt"]
     - map: ["ears"]
     - map: ["eyes"]
     - map: ["belt"]

@@ -5,6 +5,16 @@
   isSubfloor: true
   footstepSounds:
     collection: FootstepGrass
+  edgeSpritePriority: 6
+  edgeSprites:
+    SouthEast: /Textures/_RD/Tiles/Grass/single_edge_SE.png
+    NorthEast: /Textures/_RD/Tiles/Grass/single_edge_NE.png
+    NorthWest: /Textures/_RD/Tiles/Grass/single_edge_NW.png
+    SouthWest: /Textures/_RD/Tiles/Grass/single_edge_SW.png
+    South: /Textures/_RD/Tiles/Grass/double_edge_S.png
+    East: /Textures/_RD/Tiles/Grass/double_edge_E.png
+    North: /Textures/_RD/Tiles/Grass/double_edge_N.png
+    West: /Textures/_RD/Tiles/Grass/double_edge_W.png
   heatCapacity: 10000
   weather: true
   indestructible: true
@@ -12,8 +22,18 @@
 - type: tile
   id: RDirt
   name: rd-tiles-dirt-floor
-  sprite: /Textures/_RD/Tiles/dirt/dirt.png
+  sprite: /Textures/_RD/Tiles/Dirt/dirt.png
   isSubfloor: true
+  edgeSpritePriority: 4
+  edgeSprites:
+    SouthEast: /Textures/_RD/Tiles/Dirt/single_edge_SE.png
+    NorthEast: /Textures/_RD/Tiles/Dirt/single_edge_NE.png
+    NorthWest: /Textures/_RD/Tiles/Dirt/single_edge_NW.png
+    SouthWest: /Textures/_RD/Tiles/Dirt/single_edge_SW.png
+    South: /Textures/_RD/Tiles/Dirt/double_edge_S.png
+    East: /Textures/_RD/Tiles/Dirt/double_edge_E.png
+    North: /Textures/_RD/Tiles/Dirt/double_edge_N.png
+    West: /Textures/_RD/Tiles/Dirt/double_edge_W.png
   footstepSounds:
     collection: FootstepAsteroid
   heatCapacity: 10000

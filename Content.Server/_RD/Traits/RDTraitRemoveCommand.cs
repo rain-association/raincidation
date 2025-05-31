@@ -44,6 +44,7 @@ public sealed class RDTraitRemoveCommand : LocalizedCommands
         }
 
         _entity.System<RDTraitSystem>().Remove((uid, component), prototype);
+        shell.WriteLine(Loc.GetString("shell-command-success"));
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)

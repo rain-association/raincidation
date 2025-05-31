@@ -38,6 +38,7 @@ public sealed class RDTraitAddCommand : LocalizedCommands
         }
 
         _entity.System<RDTraitSystem>().Add(uid, prototype);
+        shell.WriteLine(Loc.GetString("shell-command-success"));
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
@@ -50,7 +51,7 @@ public sealed class RDTraitAddCommand : LocalizedCommands
         };
     }
 
-    private IEnumerable<CompletionOption> PrototypeIDs(IConsoleShell shell, string[] args)
+    private IEnumerable<CompletionOption> PrototypeIDs(IConsoleShell _, string[] args)
     {
         if (!NetEntity.TryParse(args[0], out var uidNet) || !_entity.TryGetEntity(uidNet, out var entityUid) || entityUid is not { } uid)
             return CompletionHelper.PrototypeIDs<RDTraitPrototype>();

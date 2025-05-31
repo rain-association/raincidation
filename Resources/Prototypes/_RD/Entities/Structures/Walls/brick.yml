@@ -1,0 +1,26 @@
+- type: entity
+  parent: RDWall
+  id: RDWallBrick
+  name: brick wall
+  components:
+  - type: Sprite
+    sprite: _RD/Entities/Structures/Walls/brick.rsi
+    state: full
+    drawdepth: Mobs
+  - type: SpriteFade
+  - type: Icon
+    sprite: _RD/Entities/Structures/Walls/brick.rsi
+    state: full
+  - type: IconSmooth
+    base: brick
+    key: rdWall
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PlacementReplacement
+    key: walls
