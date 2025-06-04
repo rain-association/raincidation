@@ -1,13 +1,13 @@
 - type: entity
   parent: RDClothing
-  id: RDClothingShirt
-  description: Pleasant to the touch material, in a comfortable loose shirt shape.
+  id: RDClothingPants
+  description: Pleasant to the touch material, in a comfortable loose pants shape.
   abstract: true
   components:
   - type: Clothing
     equipDelay: 1
     unequipDelay: 1
     slots:
-    - shirt
+    - pants
   - type: Sprite
     state: icon

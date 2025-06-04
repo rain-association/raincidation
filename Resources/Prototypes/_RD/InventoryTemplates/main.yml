@@ -97,29 +97,11 @@
     dependsOn: shirt
   # Right hand
   # Left hand
-  - name: pocket1
-    slotTexture: pocket
-    slotFlags: POCKET
-    slotGroup: MainHotbar
-    uiWindowPos: 0,0
-    strippingWindowPos: 0,0
-    dependsOn: pants
-    displayName: Pocket
-    stripHidden: true
-  - name: pocket2
-    slotTexture: pocket
-    slotFlags: POCKET
-    slotGroup: MainHotbar
-    uiWindowPos: 1,0
-    strippingWindowPos: 1,0
-    dependsOn: pants
-    displayName: Pocket
-    stripHidden: true
   - name: belt2
     slotTexture: belt
     slotFlags: BELT
     slotGroup: MainHotbar
-    uiWindowPos: 2,0
+    uiWindowPos: 0,0
     strippingWindowPos: 2,4
     dependsOn: pants
     displayName: Belt

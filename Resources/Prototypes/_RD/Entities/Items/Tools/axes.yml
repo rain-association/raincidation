@@ -18,8 +18,8 @@
     attackRate: 1.25
     damage:
       types:
-        Blunt: 10
-        Slash: 15
+        Blunt: 5
+        Slash: 20
         Structural: 30
     soundHit:
       collection: MetalThud
@@ -31,4 +31,9 @@
         Structural: 15
   - type: Item
     size: Normal
-
+    shape:
+    # _ 0 1
+    # 0 x x
+    # 1 x _
+    - 0,0,0,1
+    - 1,0,1,0

@@ -1,0 +1,9 @@
+- type: entity
+  parent: RDClothingPants
+  id: RDClothingPantsDenimShorts
+  name: denim shorts
+  components:
+  - type: Sprite
+    sprite: _RD/Entities/Items/Clothing/Pants/denim_shorts.rsi
+  - type: Clothing
+    sprite: _RD/Entities/Items/Clothing/Pants/denim_shorts.rsi

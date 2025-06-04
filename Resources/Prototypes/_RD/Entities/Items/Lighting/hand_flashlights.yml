@@ -1,0 +1,72 @@
+- type: entity
+  parent: RDItem
+  id: RDHandFlashlight
+  abstract: true
+  components:
+  - type: HandheldLight
+    addPrefix: false
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: radiating
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      minValue: 0.1
+      maxValue: 2.0
+      isLooped: true
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: RDBatteryAA
+  - type: Sprite
+    state: icon
+  - type: Item
+    size: Small
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    radius: 6
+    autoRot: true
+    netsync: false
+  - type: Appearance
+  - type: ToggleableLightVisuals
+
+- type: entity
+  parent: RDHandFlashlight
+  id: RDHandFlashlightCommon
+  name: flashlight
+  description: In this mess you can not understand whose flashlight is it, American or Russian, or maybe Brazilian? In any case, the batteries are the same and it shines, that's what's important.
+  components:
+  - type: HandheldLight
+    addPrefix: false
+    wattage: 0.5
+  - type: Item
+    sprite: _RD/Entities/Items/Lighting/HandFlashlights/common.rsi
+  - type: Sprite
+    sprite: _RD/Entities/Items/Lighting/HandFlashlights/common.rsi
+  - type: RDWorldSprite
+    sprite: _RD/Entities/Items/Lighting/HandFlashlights/common_world.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    damage:
+      types:
+        Blunt: 10
+    soundHit:
+      collection: MetalThud
+  - type: PointLight
+    radius: 6

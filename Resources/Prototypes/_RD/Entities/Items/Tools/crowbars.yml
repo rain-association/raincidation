@@ -1,0 +1,59 @@
+- type: entity
+  parent: RDItem
+  id: RDCrowbar
+  abstract: true
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/crowbar_drop.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 15
+        Structural: 5
+    soundHit:
+      collection: MetalThud
+  - type: Tool
+    qualities:
+    - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Prying
+  - type: Sprite
+    sprite: Objects/Tools/crowbar.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Tools/crowbar.rsi
+    size: Small
+
+- type: entity
+  parent: RDCrowbar
+  id: RDCrowbarCommon
+  name: crowbar
+  description: What's in digging without a crowbar? You can open a door and hit a motherfucker.
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/crowbar_drop.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 15
+        Structural: 5
+    soundHit:
+      collection: MetalThud
+  - type: Tool
+    qualities:
+    - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Prying
+  - type: Sprite
+    sprite: _RD/Entities/Items/Tools/crowbar.rsi
+  - type: RDWorldSprite
+    sprite: _RD/Entities/Items/Tools/crowbar_world.rsi
+  - type: Item
+    sprite: _RD/Entities/Items/Tools/crowbar.rsi
+    size: Small
