@@ -6,6 +6,11 @@
   footstepSounds:
     collection: FootstepGrass
   edgeSpritePriority: 6
+  variants: 3
+  placementVariants:
+  - 0.8
+  - 0.1
+  - 0.1
   edgeSprites:
     SouthEast: /Textures/_RD/Tiles/Grass/single_edge_SE.png
     NorthEast: /Textures/_RD/Tiles/Grass/single_edge_NE.png

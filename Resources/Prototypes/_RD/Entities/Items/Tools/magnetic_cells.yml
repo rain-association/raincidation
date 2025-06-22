@@ -1,0 +1,30 @@
+- type: entity
+  parent: RDItem
+  id: RDMagneticCellDelta
+  name: magnetic cell
+  description: Truly?
+  components:
+  - type: Sprite
+    sprite: _RD/Entities/Items/Tools/MagneticCells/delta.rsi
+    state: icon
+  - type: RDWorldSprite
+    sprite: _RD/Entities/Items/Tools/MagneticCells/delta_world.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    swingLeft: true
+    attackRate: 1.25
+    damage:
+      types:
+        Blunt: 10
+    soundHit:
+      collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 30
+  - type: PointLight
+    radius: 3
+    energy: 1
+    color: "#3be7072b"
+  - type: Item
+    size: Normal
