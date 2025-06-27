@@ -1,0 +1,13 @@
+- type: entity
+  parent: RDStructure
+  id: RDExchangerDebug
+  components:
+  - type: Sprite
+    sprite: _RD/default.rsi
+    state: icon
+  - type: ActivatableUI
+    key: enum.RDExchangerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.RDExchangerUiKey.Key:
+        type: RDExchangerBoundUserInterface

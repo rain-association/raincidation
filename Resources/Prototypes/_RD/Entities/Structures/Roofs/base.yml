@@ -1,0 +1,28 @@
+- type: entity
+  id: RDRoof
+  name: roof
+  description: A roof over your head to protect you from the heat of the sun or the weather.
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: PlacementReplacement
+    key: rdRoof
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Transform
+    anchored: true
+  - type: BlockWeather
+  - type: Sprite
+    drawdepth: Effects
+    sprite: _RD/Structures/Roof/test.rsi
+  - type: Icon
+    sprite: _RD/Entities/Structures/Roofs/brick.rsi
+    state: full
+  - type: IconSmooth
+    key: rdRoof
+    base: roof
+  - type: IsRoof
+  - type: RDRoof
+  - type: SunShadowCast

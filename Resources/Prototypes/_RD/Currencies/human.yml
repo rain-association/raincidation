@@ -1,0 +1,17 @@
+- type: RDCurrency
+  id: Dollar
+  name: dollar
+  description: Just for test.
+  abbreviation: Usd
+
+- type: RDCurrency
+  id: Ruble
+  name: ruble
+  description: Just for test.
+  abbreviation: Rub
+
+- type: RDCurrency
+  id: Euro
+  name: euro
+  description: Just for test.
+  abbreviation: Eur

@@ -1,0 +1,56 @@
+- type: entity
+  parent: RDClothing
+  id: RDClothingBackpack
+  name: backpack
+  description: You wear this on your back and put items into it.
+  abstract: true
+  components:
+  - type: Sprite
+    state: icon
+  - type: Item
+    size: Huge
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    maxItemSize: Huge
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+- type: entity
+  parent: RDClothingBackpack
+  id: RDClothingBackpackLeather
+  name: backpack
+  description: You wear this on your back and put items into it.
+  components:
+  - type: Sprite
+    sprite: _RD/Entities/Items/Clothing/Back/Backpacks/leather.rsi
+  - type: RDWorldSprite
+    sprite: _RD/Entities/Items/Clothing/Back/Backpacks/leather_world.rsi
+  - type: Item
+    sprite: _RD/Entities/Items/Clothing/Back/Backpacks/leather.rsi
+    size: Huge
+  - type: Clothing
+    sprite: _RD/Entities/Items/Clothing/Back/Backpacks/leather.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,2,1,5
+    - 3,0,9,5
+    - 12,2,13,5
+    # _ 0 1 2 3 4 5 6 7 8 9 1 2 3
+    # 0 _ _ _ x x x x x x x _ _ _
+    # 1 _ _ _ x x x x x x x _ _ _
+    # 2 x x _ x x x x x x x _ x x
+    # 3 x x _ x x x x x x x _ x x
+    # 4 x x _ x x x x x x x _ x x
+    # 5 x x _ x x x x x x x _ x x

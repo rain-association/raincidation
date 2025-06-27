@@ -1,0 +1,33 @@
+﻿<BoxContainer xmlns="https://spacestation14.io"
+              VerticalExpand="True"
+              HorizontalExpand="True"
+              Orientation="Horizontal">
+    <!-- list -->
+    <BoxContainer MinWidth="350"
+                  HorizontalExpand="True"
+                  Margin="8"
+                  Orientation="Vertical">
+        <ScrollContainer HorizontalExpand="True"
+                         VerticalExpand="True"
+                         HScrollEnabled="False"
+                         MinSize="0 200">
+            <GridContainer Name="ScrollContainer"
+                           HorizontalExpand="True"
+                           Columns="2" />
+        </ScrollContainer>
+    </BoxContainer>
+    <!-- legend -->
+    <BoxContainer MinWidth="350"
+                  HorizontalExpand="True"
+                  Margin="8"
+                  Orientation="Vertical">
+        <!-- icon -->
+        <TextureRect Name="View"
+                     TextureScale="2,2"
+                     Margin="0,0,4,0"
+                     MinSize="64 64"
+                     MaxSize="64 64"
+                     HorizontalAlignment="Center" />
+        <RichTextLabel Name="DescriptionLabel" />
+    </BoxContainer>
+</BoxContainer>

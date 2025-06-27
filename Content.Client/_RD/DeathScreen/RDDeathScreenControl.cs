@@ -47,6 +47,8 @@ public sealed class RDDeathScreenControl : RDControl
         _title = ev.Title;
         _reason = ev.Reason;
 
+        _label.Text = _title;
+
         _elapsedTime = 0;
         _delayElapsedTime = 0;
     }

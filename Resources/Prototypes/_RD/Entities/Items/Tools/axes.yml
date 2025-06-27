@@ -1,0 +1,39 @@
+- type: entity
+  parent: RDItem
+  id: RDAxe
+  name: axe
+  description: Truly, the weapon of a madman. Who would think to fight with axe?
+  components:
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4
+  - type: Sprite
+    sprite: _RD/Entities/Items/Tools/axe.rsi
+    state: icon
+  - type: RDWorldSprite
+    sprite: _RD/Entities/Items/Tools/axe_world.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    swingLeft: true
+    attackRate: 1.25
+    damage:
+      types:
+        Blunt: 5
+        Slash: 20
+        Structural: 30
+    soundHit:
+      collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 5
+        Blunt: 15
+        Structural: 15
+  - type: Item
+    size: Normal
+    shape:
+    # _ 0 1
+    # 0 x x
+    # 1 x _
+    - 0,0,0,1
+    - 1,0,1,0

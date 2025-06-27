@@ -1,0 +1,14 @@
+- type: entity
+  parent: RDBattery
+  id: RDBatteryAA
+  name: aa battery
+  description: A rechargeable power cell. This is the popular and reliable version.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: _RD/Entities/Items/Batteries/aa.rsi
+  - type: RDWorldSprite
+    sprite: _RD/Entities/Items/Batteries/aa_world.rsi
+  - type: Battery
+    maxCharge: 720
+    startingCharge: 720

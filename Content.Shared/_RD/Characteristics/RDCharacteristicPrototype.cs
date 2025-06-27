@@ -17,6 +17,12 @@ public sealed class RDCharacteristicPrototype : IPrototype
     public LocId Description = string.Empty;
 
     [DataField]
+    public ProtoId<RDCharacteristicGroupPrototype> Group;
+
+    [DataField]
+    public string Icon = string.Empty;
+
+    [DataField]
     public int Max = 30;
 
     [DataField]

@@ -1,0 +1,19 @@
+- type: entity
+  parent: RDClothingShirt
+  id: RDClothingShirtPurpleHoodie
+  name: purple hoodie
+  components:
+  - type: Sprite
+    sprite: _RD/Entities/Items/Clothing/Shirt/purple_hoodie.rsi
+  - type: Clothing
+    sprite: _RD/Entities/Items/Clothing/Shirt/purple_hoodie.rsi
+
+- type: entity
+  parent: RDClothingShirt
+  id: RDClothingShirtPurpleHoodieShort
+  name: cropped purple hoodie
+  components:
+  - type: Sprite
+    sprite: _RD/Entities/Items/Clothing/Shirt/purple_hoodie_short.rsi
+  - type: Clothing
+    sprite: _RD/Entities/Items/Clothing/Shirt/purple_hoodie_short.rsi

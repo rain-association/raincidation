@@ -1,0 +1,218 @@
+- type: entity
+  parent: RDClothingShirt
+  id: RDClothingTShirt
+  name: t-shirt
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _RD/Entities/Items/Clothing/Shirt/tshirt.rsi
+  - type: Clothing
+    sprite: _RD/Entities/Items/Clothing/Shirt/tshirt.rsi
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtRed
+  name: red t-shirt
+  components:
+  - type: Sprite
+    color: "#ba3523"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#ba3523"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtBlue
+  name: blue t-shirt
+  components:
+  - type: Sprite
+    color: "#2359ba"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#2359ba"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtGreen
+  name: green t-shirt
+  components:
+  - type: Sprite
+    color: "#23ba35"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#23ba35"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtYellow
+  name: yellow t-shirt
+  components:
+  - type: Sprite
+    color: "#e5d336"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#e5d336"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtBlack
+  name: black t-shirt
+  components:
+  - type: Sprite
+    color: "#1a1a1a"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#1a1a1a"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtWhite
+  name: white t-shirt
+  components:
+  - type: Sprite
+    color: "#f0f0f0"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#f0f0f0"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtOrange
+  name: orange t-shirt
+  components:
+  - type: Sprite
+    color: "#f5722a"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#f5722a"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtPink
+  name: pink t-shirt
+  components:
+  - type: Sprite
+    color: "#ff8ccf"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#ff8ccf"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtPurple
+  name: purple t-shirt
+  components:
+  - type: Sprite
+    color: "#7a40b8"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#7a40b8"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtTurquoise
+  name: turquoise t-shirt
+  components:
+  - type: Sprite
+    color: "#30d5c8"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#30d5c8"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtGray
+  name: gray t-shirt
+  components:
+  - type: Sprite
+    color: "#a8a8a8"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#a8a8a8"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtBrown
+  name: brown t-shirt
+  components:
+  - type: Sprite
+    color: "#8b4513"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#8b4513"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtLime
+  name: lime t-shirt
+  components:
+  - type: Sprite
+    color: "#bfff00"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#bfff00"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtSkyBlue
+  name: sky blue t-shirt
+  components:
+  - type: Sprite
+    color: "#87ceeb"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#87ceeb"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtNavy
+  name: navy t-shirt
+  components:
+  - type: Sprite
+    color: "#000080"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#000080"
+
+- type: entity
+  parent: RDClothingTShirt
+  id: RDClothingTShirtMagenta
+  name: magenta t-shirt
+  components:
+  - type: Sprite
+    color: "#ff00ff"
+  - type: Clothing
+    clothingVisuals:
+      shirt:
+      - state: equipped-SHIRT
+        color: "#ff00ff"

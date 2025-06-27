@@ -97,7 +97,7 @@
   - type: ShowAntagIcons
   - type: ShowContrabandDetails
   - type: Inventory
-    templateId: aghost
+    templateId: RDMain # raincidation-aghost
   - type: Loadout
     prototypes: [ MobAghostGear ]
   - type: BypassInteractionChecks

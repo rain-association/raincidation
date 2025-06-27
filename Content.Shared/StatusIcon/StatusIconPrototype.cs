@@ -202,7 +202,7 @@ public sealed partial class DebugIconPrototype : StatusIconPrototype, IInheritin
 
 /// <summary>
 /// StatusIcons for the SSD indicator
-/// </summary>
+/// </summary>ii
 [Prototype]
 public sealed partial class SsdIconPrototype : StatusIconPrototype, IInheritingPrototype
 {

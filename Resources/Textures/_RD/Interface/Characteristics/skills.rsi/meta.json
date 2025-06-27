@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-ND-4.0",
+  "copyright": "Created by TornadoTechnology (GitHub)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cook"
+    },
+    {
+      "name": "craft"
+    },
+    {
+      "name": "medicine"
+    },
+    {
+      "name": "melee"
+    },
+    {
+      "name": "range-hight"
+    },
+    {
+      "name": "range-light"
+    },
+    {
+      "name": "range-medium"
+    }
+  ]
+}

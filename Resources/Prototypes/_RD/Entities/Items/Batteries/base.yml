@@ -1,0 +1,18 @@
+- type: entity
+  parent: RDItem
+  id: RDBattery
+  abstract: true
+  components:
+  - type: Item
+    storedRotation: -90
+  - type: Battery
+  - type: PowerCell
+  - type: Sprite
+    sprite: Objects/Power/power_cells.rsi
+    state: icon
+  - type: Tag
+    tags:
+      - PowerCell
+  - type: Appearance
+  - type: PowerCellVisuals
+  - type: Riggable

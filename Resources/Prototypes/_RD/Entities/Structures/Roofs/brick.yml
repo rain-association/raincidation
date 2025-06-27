@@ -1,0 +1,27 @@
+- type: entity
+  parent: RDRoof
+  id: RDRoofBrick
+  name: brick roof
+  components:
+  - type: Sprite
+    sprite: _RD/Entities/Structures/Roofs/brick.rsi
+  - type: Icon
+    sprite: _RD/Entities/Structures/Roofs/brick.rsi
+  - type: IconSmooth
+    base: brick
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Rock
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -6
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
