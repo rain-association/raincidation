@@ -1,0 +1,6 @@
+- type: RDMerchantCategory
+  id: Debug
+  entries:
+  - id: RDHandFlashlightCommon
+    currency: Dollar
+    cost: 10
