@@ -1,4 +1,5 @@
-﻿using Content.Shared._RD.Weight.Systems;
+﻿using Content.Shared._RD.Mathematics.Extensions;
+using Content.Shared._RD.Weight.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -32,6 +33,9 @@ public sealed partial class RDWeightSpeedModifierLinearCurve : RDWeightSpeedModi
 
     public override float Calculate(float total)
     {
+        if ((total - Min).AboutEquals(0))
+            return 1;
+
         return Math.Clamp(1 - (total - Min) / (Max - Min), 0f, 1f);
     }
 }

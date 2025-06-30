@@ -20,7 +20,7 @@ public abstract class RDSharedCharacteristicSystem : EntitySystem
 
     private void OnStartup(Entity<RDCharacteristicContainerComponent> entity, ref ComponentStartup args)
     {
-        entity.Comp.Random = new RDXoshiro256(GetSeed(GetNetEntity(entity).Id));
+        entity.Comp.Random = new Xoshiro256(GetSeed(GetNetEntity(entity).Id));
     }
 
     public void Set(Entity<RDCharacteristicContainerComponent?> entity,

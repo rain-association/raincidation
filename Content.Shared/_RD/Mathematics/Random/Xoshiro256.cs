@@ -1,20 +1,53 @@
-﻿using JetBrains.Annotations;
-using Robust.Shared.Serialization;
+﻿/*
+ * Project: hypercube-mathematics
+ * File: Xoshiro256.cs
+ * License: MIT
+ * Copyright: (c) 2025 TornadoTechnology
+ *
+ * For the full license text, see the LICENSE file in the project root.
+ * Link: https://github.com/technologists-team/hypercube-mathematics
+ */
+
+using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 
 namespace Content.Shared._RD.Mathematics.Random;
 
 /// <remarks>
 /// Period 2 ^ 256 - 1.
+/// Link to a wikipedia page with an explanation of how it works and examples of implementation: https://en.wikipedia.org/wiki/Xorshift
 /// </remarks>
-[Serializable, NetSerializable]
-public struct RDXoshiro256
+[PublicAPI, Serializable]
+public struct Xoshiro256
 {
     private ulong _s0, _s1, _s2, _s3;
 
     /// <summary>
+    /// Gets the current seed value that could be used to recreate this generator's state.
+    /// Note: This is not the original seed but a derived value representing current state.
+    /// </summary>
+    public State256 State
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => new(_s0, _s1, _s2, _s3);
+    }
+
+    /// <summary>
+    /// Gets the current seed value that could be used to recreate this generator's state.
+    /// Note: This is not the original seed but a derived value representing current state.
+    /// </summary>
+    public long Seed
+    {
+        // Combine state values to create a single seed value
+        // Ensure positive value
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        get => (long) ((_s0 ^ _s1 ^ _s2 ^ _s3) & 0x7FFFFFFFFFFFFFFF);
+    }
+
+    /// <summary>
     /// Initialization of the generator from a 32-bit seed.
     /// </summary>
-    public RDXoshiro256(long seed)
+    public Xoshiro256(long seed)
     {
         // Use SplitMix64 to initialize states
         _s0 = SplitMix64((ulong) seed);
@@ -30,28 +63,26 @@ public struct RDXoshiro256
     }
 
     /// <summary>
-    /// Gets the current seed value that could be used to recreate this generator's state.
-    /// Note: This is not the original seed but a derived value representing current state.
+    /// Initialization of the generator from a 256-bit state.
     /// </summary>
-    [PublicAPI]
-    public long GetSeed()
+    public Xoshiro256(State256 state)
     {
-        // Combine state values to create a single seed value
-        var combined = _s0 ^ _s1 ^ _s2 ^ _s3;
-        return (long) (combined & 0x7FFFFFFFFFFFFFFF); // Ensure positive value
+        // Use SplitMix64 to initialize states
+        _s0 = state.S0;
+        _s1 = state.S1;
+        _s2 = state.S2;
+        _s3 = state.S3;
     }
 
     /// <summary>
     /// Generation of float in the range [0, 1].
     /// </summary>
-    [PublicAPI]
     public float NextFloat()
     {
         // We use 23 bits of the mantissa (IEEE 754 standard)
         return (NextULong() >> 40) * (1.0f / ((1 << 24) - 1));
     }
 
-    [PublicAPI]
     public float NextFloat(float min, float max)
     {
         if (max < min)
@@ -76,13 +107,11 @@ public struct RDXoshiro256
     /// <summary>
     /// Generation of int in the range [0, max].
     /// </summary>
-    [PublicAPI]
     public int NextInt(int max)
     {
         return NextInt(0, max);
     }
 
-    [PublicAPI]
     public int NextInt()
     {
         return (int) NextULong();

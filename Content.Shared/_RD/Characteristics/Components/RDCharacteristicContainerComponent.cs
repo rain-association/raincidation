@@ -18,5 +18,5 @@ public sealed partial class RDCharacteristicContainerComponent : Component
     public Dictionary<ProtoId<RDCharacteristicPrototype>, int> ModifiedValues = new();
 
     [ViewVariables]
-    public RDXoshiro256 Random;
+    public Xoshiro256 Random;
 }
