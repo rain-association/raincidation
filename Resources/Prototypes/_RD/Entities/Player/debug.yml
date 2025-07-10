@@ -1,0 +1,26 @@
+- type: entity
+  parent: RDPlyerHuman
+  id: RDPlyerHumanDebug
+  name: tourist bag
+  suffix: Debug
+  components:
+  - type: RDWeight
+  - type: RDWeightExamine
+    examines:
+      test-1:
+        min: 0
+        max: 15
+      test-2:
+        min: 15
+        max: 20
+      test-3:
+        min: 20
+        max: 30
+  - type: RDWeightSpeedModifier
+    curve: !type:RDWeightModifierLinearCurve
+      min: 100
+      max: 200
+  - type: RDWeightThrowModifier
+    curve: !type:RDWeightModifierLinearCurve
+      min: 100
+      max: 200

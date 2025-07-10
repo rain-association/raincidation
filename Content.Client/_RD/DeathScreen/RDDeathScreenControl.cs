@@ -72,6 +72,6 @@ public sealed class RDDeathScreenControl : RDControl
         _elapsedTime += args.DeltaSeconds;
 
         _label.Modulate = Color.White.WithAlpha(MathHelper.Lerp(0f, 1f, _elapsedTime / FadeDuration));
-        BackgroundColor = Color.Black.WithAlpha( MathHelper.Lerp(0f, 1f, _elapsedTime / FadeDuration));
+        BackgroundColor = Color.Black.WithAlpha(MathHelper.Lerp(0f, 1f, _elapsedTime / FadeDuration));
     }
 }
